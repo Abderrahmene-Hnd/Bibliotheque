@@ -1,6 +1,6 @@
 <?php
 
-namespace App\view\Components\Organismes;
+namespace App\view\Components\Sections;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class HeroSection extends Component
 {
     public function render()
     {
-        return view('components.organismes.hero-section');
+        return view('components.sections.hero-section');
     }
 }

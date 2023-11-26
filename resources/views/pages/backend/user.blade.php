@@ -1,3 +1,3 @@
 <div>
-    {{-- Stop trying to control. --}}
+    {{-- Do your work, then step back. --}}
 </div>

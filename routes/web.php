@@ -13,5 +13,4 @@ use App\view\Pages\Frontend\Index;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', index::class);
+Route::get('/', Index::class);

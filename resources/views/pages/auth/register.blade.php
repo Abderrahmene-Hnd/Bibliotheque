@@ -1,3 +1,3 @@
 <div>
-    {{-- Success is as dangerous as failure. --}}
+    {{-- In work, do what you enjoy. --}}
 </div>

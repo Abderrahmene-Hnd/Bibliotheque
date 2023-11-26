@@ -1,3 +1,4 @@
-<div>
-<h1>Hello World !!</h1>
-</div>
+<livewire:components.sections.navbar/>
+
+<livewire:components.sections.hero-section/>
+<livewire:components.sections.feature/>

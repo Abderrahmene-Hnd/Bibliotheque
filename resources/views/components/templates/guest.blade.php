@@ -1,3 +1,3 @@
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+    {{-- Nothing in the world is as soft and yielding as water. --}}
 </div>
