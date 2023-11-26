@@ -1,4 +1,4 @@
-    <nav class="container mx-auto px-6 py-3 mt-5">
+    <nav class="container mx-auto px-6 ml-16 mt-5">
         <div class="flex justify-between items-center ">
             <a href="#" class="text-2xl font-bold text-gray-800 ">MyWebsite</a>
             <div class="flex space-x-4">

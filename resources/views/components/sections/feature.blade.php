@@ -1,15 +1,5 @@
-<div class="grid grid-cols-3">
-    @foreach ($this->features as $feature )
-    {{-- <livewire:components.molecules.card/> --}}
-    <div class="border border-gray-600 grid-cols-2">
-        <div>
-            <div>{{$feature->title}}</div>
-            <img src="asset('{{$feature->image}}')" alt="">
-        </div>
-        <div>
-            <div>{{$feature->excerpt}}</div>
-            <div>{{$feature->body}}</div>
-        </div>
-    </div>
+<div class="grid grid-cols-3 mt-60 space-x-8 space-y-8 ml-36">
+    @foreach ($this->features as $feature)
+        <livewire:components.molecules.card :feature="$feature" class="border-2 border-purple-500" />
     @endforeach
 </div>

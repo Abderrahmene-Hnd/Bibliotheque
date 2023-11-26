@@ -7,6 +7,15 @@ use App\Models\Features;
 
 class Card extends Component
 {
+    private $feature;
+    private $class;
+
+    public function mount($feature,$class)
+    {
+        $this->feature=$feature;
+        $this->class=$class;
+
+    }
 
     public function render()
     {
