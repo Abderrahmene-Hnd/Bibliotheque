@@ -1,10 +1,11 @@
 <?php
 
-namespace App\view\Pages\Auth;
+namespace App\view\Pages\Auth\Register;
 
+use App\Models\User;
 use Livewire\Component;
 
-class Register extends Component
+class Register_Create extends Component
 {
     public function render()
     {

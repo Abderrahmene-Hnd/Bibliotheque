@@ -8,17 +8,15 @@ class Input extends Component
 {
     private $name;
     private $type;
-    private $link;
     private $class;
     private $holder;
 
-    public function mount($name, $type, $link, $class, $holder)
+    public function mount($name, $type, $class, $holder)
     {
         $this->name = $name;
         $this->type = $type;
-        $this->link = $link;
         $this->class = $class;
-        $this->placeholder = $holder;
+        $this->holder = $holder;
     }
     public function render()
     {

@@ -1,21 +1,17 @@
 <div>
-    <section>
-        <div class="absolute insert-0 pointer-events-none mb-28 md:mb-0 contrast-75 w-full -z-10 ">
-            <img class="w-full px-28 pb-32 rounded-md object-cover aspect-video" src="{{ asset('images/library.jpg') }}"
+    <section class="pb-36 container mx-auto">
+        <div class="absolute -z-10 ">
+            <img class="px-28 pb-28 aspect-auto" src="{{ asset('images/books.jpg') }}" width="1400px" height="787px"
                 alt="">
         </div>
-        <div class="relative px mx-auto max-w-screen-xl font-bold text-xl">
-            <h2 class=" text-white mt-14 text-5xl text-center pt-28 mb-8">Welcom to Our Library</h2>
-            <p class=" text-white m-12  text-3xl text-center leading-relaxed">
+        <div class="relative ml-14  px-48 max-w-screen-xl font-bold text-xl mt-20 ">
+            <h2 class=" text-indigo-500  text-5xl text-center pt-32 pb-10">Welcom to Our Library</h2>
+            <p class=" text-white text-4xl text-center leading-relaxed ">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ob
                 velit amet modi sunt nulla rem, eum sint hic. Lorem ipsum dolor sit amet consectetur, adip
                 isicing elit. Qui pariatur placeat suscipit, laborum debitis incidunt a, beatae ea doloremque architecto
                 eos aperiam
-                Nemo eaque blanditiis saepe pariatur accusamus! Accusamus iusto consequatur tenetur eius consequuntur c
-                Quisquam obcaecati possimus exercitationem aspernatur est mollitia eum, ab libero perferendis
-                maiores repellendus, recusandae in! Reiciendis distinctio nesciunt exercitationem incidunt, hic esse
-                perferen
-                dis debitis, provident ab iste eaque molestiae dolore. </p>
+               </p>
         </div>
     </section>
 </div>

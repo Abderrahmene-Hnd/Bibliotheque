@@ -1,10 +1,11 @@
 <?php
 
-namespace App\view\Pages\Auth;
+namespace App\view\Pages\Auth\Login;
 
+use App\Models\User;
 use Livewire\Component;
 
-class Login extends Component
+class Login_Create extends Component
 {
     public function render()
     {
