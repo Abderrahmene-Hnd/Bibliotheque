@@ -12,6 +12,14 @@ use App\view\Pages\Backend\Admin\Dashboard;
 use App\view\Pages\Backend\Admin\AdminsManager;
 use App\view\Pages\Auth\Register\Register_Store;
 use App\view\Pages\Auth\Register\Register_Create;
+use App\view\Pages\Backend\Admin\Dashboard\BookStore;
+use App\view\Pages\Backend\Admin\Dashboard\BookCreate;
+use App\view\Pages\Backend\Admin\Dashboard\BookDelete;
+use App\view\Pages\Backend\Admin\Dashboard\BookUpdate;
+use App\view\Pages\Backend\Admin\AdminsManager\AdminStore;
+use App\view\Pages\Backend\Admin\AdminsManager\AdminCreate;
+use App\view\Pages\Backend\Admin\AdminsManager\AdminDelete;
+use App\view\Pages\Backend\Admin\AdminsManager\AdminUpdate;
 use App\view\Pages\Auth\PasswordManager\ResetPassword_Store;
 use App\view\Pages\Auth\PasswordManager\ForgetPassword_Store;
 use App\view\Pages\Auth\PasswordManager\ResetPassword_Create;
@@ -33,11 +41,21 @@ Route::get('/', Index::class);
 Route::get('/books/{book:slug}', Show::class);
 
 Route::get('/dashboard/admin', AdminsManager::class)->middleware('can:admin');
-//........... Admins CRUD............
+//........... Admins CRUD...........
+Route::get('/admin/register', AdminCreate::class)->middleware('can:admin');
+Route::post('/admin/register', AdminStore::class)->middleware('can:admin');
+Route::post('/dashboard/admin/edit', AdminUpdate::class)->middleware('can:admin');
+Route::post('/dashboard/admin/delete', AdminDelete::class)->middleware('can:admin');
 
 
 Route::get('/dashboard', Dashboard::class)->middleware('can:manager');
 //...........Books CRUD............
+Route::get('/dashboard/create', BookCreate::class)->middleware('can:manager');
+Route::post('/dashboard/store', BookStore::class)->middleware('can:manager');
+Route::post('/dashboard/edit', BookUpdate::class)->middleware('can:manager');
+Route::post('/dashboard/delete', BookDelete::class)->middleware('can:manager');
+
+
 
 
 Route::get('/comments', Comments::class);

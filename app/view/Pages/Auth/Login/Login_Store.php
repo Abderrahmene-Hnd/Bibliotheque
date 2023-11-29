@@ -2,6 +2,7 @@
 
 namespace App\view\Pages\Auth\Login;
 
+use App\Models\Book;
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
@@ -10,8 +11,10 @@ use Illuminate\Validation\ValidationException;
 class Login_Store extends Component
 {
     public $comments;
+    public $books;
     public function mount()
     {
+        //b livewire jcp esque hna wala f create
         $attributes=request()->validate([
             'email'=> ['required','email'],
             'password'=> ['required','min:5','max:255']
@@ -23,6 +26,7 @@ class Login_Store extends Component
         }
         session()->regenerate();
         $this->comments= Comment::all();
+        $this->books= Book::all();
 
     }
     public function render()

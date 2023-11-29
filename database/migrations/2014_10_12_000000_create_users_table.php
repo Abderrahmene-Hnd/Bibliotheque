@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tasks')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('role_id')->default(0);
+            $table->integer('role_id');
         });
     }
     /**
