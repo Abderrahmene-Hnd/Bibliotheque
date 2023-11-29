@@ -25,34 +25,20 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->registerPolicies();
+        //$this->registerPolicies();
+        // Blade::if('create', function () {
+        //     return request()->user()?->can('create', Task::class);
+        // });
+        // Blade::if('update', function () {
+        //     return request()->user()?->can('update', Task::class);
+        // });
+        // Blade::if('delete', function () {
+        //     return request()->user()?->can('delete', Task::class);
+        // });
 
-        Blade::if('create', function () {
-            return request()->user()?->can('create', Task::class);
-        });
-        Blade::if('update', function () {
-            return request()->user()?->can('update', Task::class);
-        });
-        Blade::if('delete', function () {
-            return request()->user()?->can('delete', Task::class);
-        });
-
-        Blade::if('admin', function () {
-            return request()->user()?->can('admin', Task::class);
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Blade::if('admin', function () {
+        //     return request()->user()?->can('admin', Task::class);
+        // });
         /**
          * For Multiple admins but without $tasks :
          */
@@ -88,9 +74,7 @@ class AuthServiceProvider extends ServiceProvider
         */
 
         // old :
-        // Model::unguard();
-        // Gate::define('admin',function(User $user){
-        //     return $user->is_admin;
-        // });
+
+
     }
 }

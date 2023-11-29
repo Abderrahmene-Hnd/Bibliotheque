@@ -1,1 +1,1 @@
-<label for="{{ $this->name }}" class="{{ $this->class }}"> {{ ucwords($this->name) }}</label>
+<label for="{{ $name }}" class="{{ $class }}"> {{ $content }}</label>

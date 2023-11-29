@@ -3,13 +3,14 @@
 namespace App\view\Components\Atoms;
 
 use Livewire\Component;
+use App\Models\Features;
 
-class Button extends Component
+class Card extends Component
 {
-    public $content;
+    public $feature;
     public $class;
     public function render()
     {
-        return view('components.atoms.button');
+        return view('components.atoms.card');
     }
 }

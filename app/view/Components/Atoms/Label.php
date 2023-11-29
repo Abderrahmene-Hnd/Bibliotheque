@@ -6,13 +6,9 @@ use Livewire\Component;
 
 class Label extends Component
 {
-    private $name;
-    private $class;
-    public function mount($class,$name)
-    {
-        $this->name=$name;
-        $this->class=$class;
-    }
+    public $name;
+    public $content;
+    public $class;
     public function render()
     {
         return view('components.atoms.label');

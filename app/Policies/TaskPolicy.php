@@ -14,7 +14,7 @@ class TaskPolicy
      */
     public function create(User $user): bool
     {
-        return auth()->check() && in_array($user->role_id,[Role::IS_ADMIN,Role::IS_MANAGER,Role::IS_USER]);
+        return auth()->check() && in_array($user->role_id,[Role::IS_ADMIN,Role::IS_MANAGER]);
     }
     /**
     * Determine whether the user can update the model.

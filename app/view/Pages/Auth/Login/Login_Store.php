@@ -3,11 +3,13 @@
 namespace App\view\Pages\Auth\Login;
 
 use App\Models\User;
+use App\Models\Comment;
 use Livewire\Component;
 use Illuminate\Validation\ValidationException;
 
 class Login_Store extends Component
 {
+    public $comments;
     public function mount()
     {
         $attributes=request()->validate([
@@ -20,9 +22,18 @@ class Login_Store extends Component
             redirect('/login');
         }
         session()->regenerate();
+        $this->comments= Comment::all();
+
     }
     public function render()
     {
-        return view('pages.frontend.index')->with('success',' Welcome Back ! '.auth()->user()?->username);
+        if(auth()->user()->is_admin==true)
+        {
+            return view('pages.backend.admin.dashboard')->with('success',' Welcome Back ADMIN ! '.auth()->user()?->username);
+        }
+        else
+        {
+            return view('pages.frontend.index')->with('success',' Welcome Back ! '.auth()->user()?->username);
+        }
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Features;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
         ]);
         User::factory()->create([
             'username'=>'Youcef',
+            'email_verified_at'=>Carbon::now(),
             'is_admin'=>0,
             'role_id'=>3
         ]);
@@ -49,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Manager'
         ]);
         Role::create([
-            'name'=>'User'
+            'name'=>'Client'
         ]);
     }
 }

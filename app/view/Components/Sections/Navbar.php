@@ -6,11 +6,8 @@ use Livewire\Component;
 
 class Navbar extends Component
 {
-    private $class;
-    public function mount($class)
-    {
-        $this->class=$class;
-    }
+    public $class;
+
 
     public function render()
     {

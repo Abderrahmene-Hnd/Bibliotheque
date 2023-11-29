@@ -12,9 +12,7 @@
 </head>
 <body class="min-h-screen bg-blue-950">
     <livewire:components.sections.navbar class=" bg-blue-800" />
-    {{ $slot }}
-    <x-atoms.success session="session()" />
-    <livewire:components.atoms.auth-success" />
+    {{-- i want to run auths pages here :((   --}}
 </body>
 
 </html>
