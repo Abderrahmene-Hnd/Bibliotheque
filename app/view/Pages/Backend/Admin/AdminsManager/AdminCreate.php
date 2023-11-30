@@ -8,8 +8,36 @@ use Livewire\Component;
 
 class AdminCreate extends Component
 {
+    public $comments;
+    public $username;
+    public $email;
+    public $password;
+
+    public function mount()
+    {
+        $this->comments= Comment::all();
+    }
+    protected $rules = [
+        'username'=> ['required','min:5','max:255'],
+        'email'=> ['required','email'],
+        'password'=> ['required','min:5','max:255']
+    ];
+
+    public function adminregister()
+    {
+        $this->validate();
+
+        $user=User::create([
+            'username'=> $this->username,
+            'email'=> $this->email,
+            'password'=> $this->password,
+            'role_id'=>2
+        ]);
+        auth()->login($user);
+        redirect('/dashboard');
+    }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager.admin-create');
+        return view('pages.backend.admin.admins-manager.admin-create')->layout('components.templates.app',['title' => 'Create Admin']);
     }
 }

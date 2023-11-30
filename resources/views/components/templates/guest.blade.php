@@ -1,3 +1,5 @@
-<div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-</div>
+@extends('components.templates.base')
+@section('body')
+    <x-sections.navbar class='bg-indigo-500' />
+    {{ $slot }}
+@endsection

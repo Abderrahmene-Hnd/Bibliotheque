@@ -1,4 +1,4 @@
-        <header class="sticky top-0 z-10 {{ $class }} text-white">
+        <header class="sticky top-0 z-10 {{ $class ?? '' }} text-white">
             <section class="max-w-6xl mx-auto flex p-4  justify-between items-center">
                 <h1><a href="/" class="text-3xl font-bold  text-white ">My Library 📖</a></h1>
                 <div><button id="mobile-open-button" class="text-3xl sm:hidden  focus:outline-none">&#9776;</button></div>
@@ -6,7 +6,7 @@
                     @auth
                         <a href="/" class=" hover:opacity-80">Vitrine</a>
                         @manager
-                        <a href="/dashboard" class="hover:opacity-80 text-green-500">Dashbord</a>
+                            <a href="/dashboard" class="hover:opacity-80 text-green-500">Dashbord</a>
                         @endmanager
 
                         @admin
@@ -20,7 +20,7 @@
                         </form>
                         <span class="">Hello {{ auth()->user()?->username }}</span>
                     @else
-                        <a href="/login" class="hover:opacity-80">LogIn</a>
+                        <a href="{{ route('login') }}" class="hover:opacity-80">LogIn</a>
                         <a href="/register" class="hover:opacity-80">Register</a>
                     @endauth
 

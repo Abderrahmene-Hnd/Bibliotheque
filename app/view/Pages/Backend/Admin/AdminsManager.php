@@ -15,6 +15,6 @@ class AdminsManager extends Component
     }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager');
+        return view('pages.backend.admin.admins-manager')->layout('components.templates.app',['title' => 'Admins manager']);
     }
 }

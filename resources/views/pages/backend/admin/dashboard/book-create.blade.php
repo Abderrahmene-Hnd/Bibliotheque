@@ -4,14 +4,16 @@
         <form wire:submit.prevent="bookcreate">
             @csrf
             <label for="category" class="block mb-2 uppercase font-bold text-sm text-gray-700">category</label>
-            <select {{-- wire:model.lazy="category" --}} name="category" id="category">
+            <select  wire:model.lazy="categoryinput" name="category" id="category">
+                <option value="">Choose category</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }} ">{{ $category->name }}</option>
                 @endforeach
             </select>
 
             <label for="author" class="block mb-2 uppercase font-bold text-sm text-gray-700">author</label>
-            <select {{-- wire:model.lazy="authorinput" --}} name="author" id="author">
+            <select wire:model.lazy="authorinput" name="author" id="author">
+                <option value="">Choose author</option>
                 @foreach ($authors as $author)
                     <option value="{{ $author->id }} ">{{ $author->name }}</option>
                 @endforeach
@@ -19,8 +21,7 @@
 
             <div class="mb-6">
                 <label for="title" class="block mb-2 uppercase font-bold text-sm text-gray-700 ">title</label>
-                <input wire:model.lazy="titleinput" class="rounded-lg p-2 w-full focus:outline-none focus:ring border-2 border-indigo-500"
-                    type="" name="" id="" placeholder="" required>
+                <x-atoms.input name="title" type="text" class="rounded-lg p-2 w-full focus:outline-none focus:ring border-2 border-indigo-500" holder="" model="titleinput" />
                 @error('title')
                     <p class='text-red-500 text-xs mt-2'>{{ $message }}</p>
                 @enderror

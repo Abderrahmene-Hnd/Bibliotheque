@@ -1,12 +1,12 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\AdminsManager;
+namespace App\view\Pages\Auth;
 
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
 
-class AdminUpdate extends Component
+class Register extends Component
 {
     public $comments;
     public $username;
@@ -24,7 +24,7 @@ class AdminUpdate extends Component
         'password'=> ['required','min:5','max:255']
     ];
 
-    public function adminedit()
+    public function register()
     {
         $this->validate();
 
@@ -32,13 +32,13 @@ class AdminUpdate extends Component
             'username'=> $this->username,
             'email'=> $this->email,
             'password'=> $this->password,
-            'role_id'=>2
+            'role_id'=>3
         ]);
         auth()->login($user);
-        redirect('/dashboard/admin');
+        redirect('/');
     }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager.admin-update')->layout('components.templates.app',['title' => 'Update the Admin']);
+        return view('pages.auth.register')->layout('components.templates.auth',['title' => 'Register']);
     }
 }

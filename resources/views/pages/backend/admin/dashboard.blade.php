@@ -1,6 +1,6 @@
 
 <h1 class="text-indigo-500 text-5xl font-semibold text-center mt-12">Our Books</h1>
-<h3 class="font-semibold text-2xl container mx-auto mt-5" ><a href="/dashboard/create" class="border border-green-500 rounded-3xl bg-green-500 text-white px-5 py-3 pb-3.5" >Create a new book</a></h3>
+<h3 class="font-semibold text-xl container mx-auto mt-5" ><a href="/dashboard/create" class="border border-green-500 rounded-3xl bg-green-500 text-white px-5 py-2 pb-3.5" >Create a new book</a></h3>
 <body class="antialiased font-sans">
     <div class="container mx-auto px-4 sm:px-8">
         <div class="pb-8">
@@ -69,7 +69,7 @@
                                         </p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <a href=" /admin/posts/{{ $book->id }}/edit"
+                                        <a href=" /dashboard/{{ $book->id }}/edit"
                                             class="text-blue-500 hover:text-blue-600">Edit</a>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">

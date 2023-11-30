@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <title>Library</title>
+    <title>{{ $title ?? 'My page' }}</title>
     @vite('resources/css/app.css')
     <livewire:styles />
 
 </head>
-<body class="min-h-screen bg-slate-50 ">
-    <livewire:components.sections.navbar class=" bg-indigo-500"/>
-    {{ $slot }}
 
+<body class="min-h-screen bg-slate-50 ">
+    @yield('body')
     <livewire:scripts />
 </body>
 

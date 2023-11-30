@@ -2,7 +2,7 @@
 
 namespace App\view\Components\Templates;
 
-use Livewire\Component;
+use Illuminate\View\Component;
 
 class App extends Component
 {
