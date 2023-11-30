@@ -5,6 +5,7 @@ namespace App\view\Components\Sections;
 use App\Models\Comment;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Comments extends Component
 {
@@ -24,7 +25,7 @@ class Comments extends Component
     }
     public function getCommentsProperty()
     {
-        return Comment::paginate(2);
+        return Comment::paginate(5);
     }
     public function render()
     {

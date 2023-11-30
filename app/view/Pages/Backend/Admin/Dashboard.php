@@ -4,10 +4,12 @@ namespace App\view\Pages\Backend\Admin;
 
 use App\Models\Book;
 use Livewire\Component;
-use WithPagination;
+use Livewire\WithPagination;
 
 class Dashboard extends Component
 {
+    use WithPagination;
+
     public $books;
 
     public function mount()

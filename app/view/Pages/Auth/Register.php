@@ -35,7 +35,8 @@ class Register extends Component
             'role_id'=>3
         ]);
         auth()->login($user);
-        redirect('/');
+        redirect('/')->with('success','Your account has been created !');
+
     }
     public function render()
     {

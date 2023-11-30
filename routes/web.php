@@ -7,10 +7,9 @@ use App\view\Pages\Auth\Register;
 use App\view\Pages\Frontend\Show;
 use App\view\Pages\Frontend\Index;
 use Illuminate\Support\Facades\Route;
-use App\view\Components\Sections\Comments;
 use App\view\Pages\Backend\Admin\Dashboard;
 use App\view\Pages\Backend\Admin\AdminsManager;
-use App\view\Pages\Backend\Admin\Dashboard\BookStore;
+use App\view\Pages\Backend\Client\ClientDashboard;
 use App\view\Pages\Backend\Admin\Dashboard\BookCreate;
 use App\view\Pages\Backend\Admin\Dashboard\BookDelete;
 use App\view\Pages\Backend\Admin\Dashboard\BookUpdate;
@@ -49,7 +48,8 @@ Route::get('/dashboard/create', BookCreate::class)->middleware('can:manager');
 Route::post('/dashboard/{book:id}/edit', BookUpdate::class)->middleware('can:manager');
 Route::post('/dashboard/delete', BookDelete::class)->middleware('can:manager');
 
-Route::get('/comments', Comments::class);
+Route::get('/settings', ClientDashboard::class);
+
 
 Route::get('/register', Register::class);
 

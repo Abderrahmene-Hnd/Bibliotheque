@@ -35,7 +35,8 @@ class AdminUpdate extends Component
             'role_id'=>2
         ]);
         auth()->login($user);
-        redirect('/dashboard/admin');
+        redirect('/dashboard/admin')->with('success','Your Admin User has been updated!');
+
     }
     public function render()
     {

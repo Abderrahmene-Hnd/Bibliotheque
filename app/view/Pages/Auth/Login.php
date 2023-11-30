@@ -28,7 +28,7 @@ class Login extends Component
         if(!auth()->attempt($this->validate()))
         {
             // throw ValidationException::withMessages(['login'=>'Invalid email or password ']);
-            redirect('/login')->withErrors(['error'=> 'Invalid email or password']);
+            return redirect('/login')->with(['error'=> 'Invalid email or password']);
         }
         session()->regenerate();
         if(auth()->user()->is_admin==true)

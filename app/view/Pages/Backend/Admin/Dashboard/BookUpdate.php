@@ -35,6 +35,7 @@ class BookUpdate extends Component
             'excerpt'=>$this->excerptinput,
             'body'=>$this->bodyinput,
         ]);
+        redirect('/dashboard')->with('success','Your book have been updated !');
 
     }
     public function render()

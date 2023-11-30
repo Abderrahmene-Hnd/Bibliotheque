@@ -10,6 +10,7 @@ class Logout extends Component
     public function mount()
     {
         auth()->logout();
-        $this->redirect(route('home'));
+        redirect('/')->with('success','Good Bye ! <3');
+
     }
 }

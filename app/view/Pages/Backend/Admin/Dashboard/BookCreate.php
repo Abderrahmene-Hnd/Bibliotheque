@@ -37,7 +37,7 @@ class BookCreate extends Component
             'excerpt'=>$this->excerptinput,
             'body'=>$this->bodyinput,
         ]);
-
+        redirect('/dashboard')->with('success','Your book have been created !');
     }
     public function render()
     {

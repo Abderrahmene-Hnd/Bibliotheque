@@ -5,10 +5,10 @@
                 <div aria-label="main" class="space-x-4 hidden sm:block text-lg">
                     @auth
                         <a href="/" class=" hover:opacity-80">Vitrine</a>
+                        <a href="/settings" class=" hover:opacity-80">Settings</a>
                         @manager
                             <a href="/dashboard" class="hover:opacity-80 text-green-500">Dashbord</a>
                         @endmanager
-
                         @admin
                             <a href="/dashboard/admin" class="hover:opacity-80 text-red-600">AdminManager</a>
                         @endadmin

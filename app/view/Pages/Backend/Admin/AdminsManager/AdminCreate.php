@@ -8,15 +8,10 @@ use Livewire\Component;
 
 class AdminCreate extends Component
 {
-    public $comments;
     public $username;
     public $email;
     public $password;
 
-    public function mount()
-    {
-        $this->comments= Comment::all();
-    }
     protected $rules = [
         'username'=> ['required','min:5','max:255'],
         'email'=> ['required','email'],
@@ -34,7 +29,8 @@ class AdminCreate extends Component
             'role_id'=>2
         ]);
         auth()->login($user);
-        redirect('/dashboard');
+        redirect('/dashboard')->with('success','Your Admin account has been created !');
+
     }
     public function render()
     {
