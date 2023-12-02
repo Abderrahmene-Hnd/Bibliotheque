@@ -1,6 +1,6 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\Dashboard;
+namespace App\view\Pages\Backend\Admin\Dashboard\Book;
 
 use App\Models\Book;
 use App\Models\Author;
@@ -41,6 +41,6 @@ class BookCreate extends Component
     }
     public function render()
     {
-        return view('pages.backend.admin.dashboard.book-create')->layout('components.templates.app',['title' => 'Create a Book']);
+        return view('pages.backend.admin.dashboard.book.book-create')->layout('components.templates.app',['title' => 'Create a Book']);
     }
 }

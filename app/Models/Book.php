@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Book extends Model
@@ -19,8 +20,8 @@ class Book extends Model
     {
         return $this->belongsTo(Author::class);
     }
-    public function image()
+    public function image(): MorphOne
     {
-        return $this->hasOne(Image::class);
+        return $this->morphOne(Image::class,'imageable');
     }
 }

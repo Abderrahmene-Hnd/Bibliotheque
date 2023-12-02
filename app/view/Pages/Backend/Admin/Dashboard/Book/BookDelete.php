@@ -1,6 +1,6 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\Dashboard;
+namespace App\view\Pages\Backend\Admin\Dashboard\Book;
 
 use Livewire\Component;
 

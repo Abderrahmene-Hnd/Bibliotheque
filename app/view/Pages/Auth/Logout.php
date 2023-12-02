@@ -10,7 +10,7 @@ class Logout extends Component
     public function mount()
     {
         auth()->logout();
-        redirect('/')->with('success','Good Bye ! <3');
+        redirect('/login')->with('success','Good Bye ! <3');
 
     }
 }

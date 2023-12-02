@@ -1,39 +1,55 @@
-<div class="mt-24">
-    <h1 class="text-5xl text-blue-500 text-center font-bold ">Settings</h1>
-    <div class="container mx-auto max-w-2xl border shadow overflow-hidden bg-gray-100 rounded-xl p-5 mt-8 ">
-        <div class="space-y-12 py-12">
-            <form wire:submit.prevent="changerUsername">
-                @csrf
-                <label for="username" class="font-semibold">USERNAME</label>
-                <div class="grid grid-cols-5 space-x-5 h-16 ">
-                    <x-atoms.input name="username" type="text"
-                        class="border-2 border-indigo-500 my-2 rounded-xl col-span-3" holder="" model="username" />
-                    <x-atoms.button class="mt-1.5 col-span-2 w-56 " content="Changer Username" />
-                </div>
-            </form>
+<div class="mx-auto max-w-5xl border shadow overflow-hidden bg-gray-100/10 rounded-xl px-14 py-14 mt-24 ">
+    <h2 class=" text-3xl text-center font-semibold leading-7 text-indigo-700">Personal Informations</h2>
 
-            <form wire:submit.prevent="changerEmail">
-                @csrf
-                <label for="email" class="font-semibold">EMAIL</label>
-                <div class="grid grid-cols-5 space-x-5 h-16 ">
-                    <x-atoms.input name="email" type="email"
-                        class="border-2 border-indigo-500 my-2 rounded-xl col-span-3" holder="" model="email" />
-                    <x-atoms.button class="mt-1.5 col-span-2 w-44 " content="Changer Email" />
-                </div>
-            </form>
+    <div class="mt-10 space-y-8 ">
+        <h2 class="text-lg font-semibold leading-7 text-gray-900">Change your Username and email</h2>
+        <form wire:submit.prevent="changerUsername">
+            <div class="sm:col-span-4">
+                <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                <div class="mt-2 justify-between space-x-5 flex ">
+                    <x-atoms.input model="username" name="email" type="email" class="" holder="{{ auth()->user()->username }}" />
 
-            <form wire:submit.prevent="changerPassword">
-                @csrf
-                <label for="password" class="font-semibold">PASSWORD</label>
-                <div class="grid grid-cols-5 space-x-5 h-16">
-                    <x-atoms.input name="password" type="password"
-                        class="border-2 border-indigo-500 my-2 rounded-xl col-span-3" holder="" model="password" />
-                    <x-atoms.button class="mt-1.5 col-span-2 w-56 " content="Changer Password" />
-                    @error('error')
-                        <p class='text-red-500 text-xs mt-2'> {{ $message }}</p>
-                    @enderror
+                    <button type="submit"
+                        class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+        <form wire:submit.prevent="changerEmail">
+            <div class="sm:col-span-4">
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
+                    address</label>
+                <div class="mt-2 justify-between space-x-5 flex ">
+                    <x-atoms.input model="email" name="email" type="email" class="" holder="{{ auth()->user()->email }}" />
+
+                    <button type="submit"
+                        class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
+                </div>
+            </div>
+        </form>
     </div>
+    <form wire:submit.prevent="changerPassword">
+        <div class="mt-10 space-y-8 ">
+            <h2 class="text-lg font-semibold leading-7 text-gray-900">Change the password</h2>
+            <div class="sm:col-span-4">
+                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Old
+                    Password</label>
+                <div class="mt-2">
+                    <x-atoms.input model="oldPassword" name="email" type="email" class="" holder="" />
+                </div>
+                @error('oldPassword')
+                    <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
+                @enderror
+            </div>
+            <div class="sm:col-span-4">
+                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">New
+                    Password</label>
+                <div class="mt-2">
+                    <x-atoms.input model="newPassword" name="email" type="email" class="" holder="" />
+                </div>
+            </div>
+            <button type="submit"
+                class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
+        </div>
+    </form>
+    <x-atoms.show-errors />
 </div>

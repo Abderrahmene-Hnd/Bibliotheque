@@ -1,6 +1,18 @@
-
 <h1 class="text-indigo-500 text-5xl font-semibold text-center mt-12">Our Books</h1>
-<h3 class="font-semibold text-xl container mx-auto mt-5" ><a href="/dashboard/create" class="border border-green-500 rounded-3xl bg-green-500 text-white px-5 py-2 pb-3.5" >Create a new book</a></h3>
+
+<div class="grid grid-cols-3 mt-16 ml-60">
+    <h3 class="font-semibold text-xl "><a href="/dashboard/book/create"
+            class="border border-green-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a new book</a>
+    </h3>
+    <h3 class="font-semibold text-xl "><a href="/dashboard/category/create"
+            class="border border-green-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a new
+            Category</a></h3>
+    <h3 class="font-semibold text-xl "><a href="/dashboard/author/create"
+            class="border border-green-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a new
+            Author</a></h3>
+</div>
+
+
 <body class="antialiased font-sans">
     <div class="container mx-auto px-4 sm:px-8">
         <div class="pb-8">
@@ -53,7 +65,7 @@
                                         <div class="flex items-center">
                                             <div class="ml-3">
                                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                  {{ $book->title }}
+                                                    {{ $book->title }}
                                                 </p>
                                             </div>
                                         </div>
@@ -69,15 +81,15 @@
                                         </p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <a href=" /dashboard/{{ $book->id }}/edit"
+                                        <a href=" /dashboard/book/{{ $book->id }}/edit"
                                             class="text-blue-500 hover:text-blue-600">Edit</a>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            {{-- <form method="POST" action="/admin/posts/{{ $user->id }}">
-                                                @csrf
+                                        {{-- <form method="POST" action="/dashboard/admin/posts/{{ $user->id }}">
+
                                                 @method('DELETE')
                                             </form> --}}
-                                        <button class="text-red-400 hover:text-red-600" >Delete</button>
+                                        <button class="text-red-400 hover:text-red-600">Delete</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -88,4 +100,3 @@
         </div>
     </div>
 </body>
-

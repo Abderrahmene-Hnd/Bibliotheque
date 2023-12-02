@@ -1,6 +1,6 @@
 <?php
 
-use App\view\Test;
+use App\Models\Category;
 use App\view\Pages\Auth\Login;
 use App\view\Pages\Auth\Logout;
 use App\view\Pages\Auth\Register;
@@ -10,59 +10,74 @@ use Illuminate\Support\Facades\Route;
 use App\view\Pages\Backend\Admin\Dashboard;
 use App\view\Pages\Backend\Admin\AdminsManager;
 use App\view\Pages\Backend\Client\ClientDashboard;
-use App\view\Pages\Backend\Admin\Dashboard\BookCreate;
-use App\view\Pages\Backend\Admin\Dashboard\BookDelete;
-use App\view\Pages\Backend\Admin\Dashboard\BookUpdate;
+
 use App\view\Pages\Backend\Admin\AdminsManager\AdminCreate;
 use App\view\Pages\Backend\Admin\AdminsManager\AdminDelete;
 use App\view\Pages\Backend\Admin\AdminsManager\AdminUpdate;
+
+use App\view\Pages\Backend\Admin\Dashboard\Category\CategoryCreate;
+use App\view\Pages\Backend\Admin\Dashboard\Category\CategoryDelete;
+use App\view\Pages\Backend\Admin\Dashboard\Category\CategoryUpdate;
+
+use App\view\Pages\Backend\Admin\Dashboard\Author\AuthorCreate;
+use App\view\Pages\Backend\Admin\Dashboard\Author\AuthorDelete;
+use App\view\Pages\Backend\Admin\Dashboard\Author\AuthorUpdate;
+
+use App\view\Pages\Backend\Admin\Dashboard\Book\BookCreate;
+use App\view\Pages\Backend\Admin\Dashboard\Book\BookDelete;
+use App\view\Pages\Backend\Admin\Dashboard\Book\BookUpdate;
+
 use App\view\Pages\Auth\PasswordManager\ResetPassword_Store;
-use App\view\Pages\Auth\PasswordManager\ForgetPassword_Store;
 use App\view\Pages\Auth\PasswordManager\ResetPassword_Create;
+
+use App\view\Pages\Auth\PasswordManager\ForgetPassword_Store;
 use App\view\Pages\Auth\PasswordManager\ForgetPassword_Create;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', Index::class)->name('home');
-
 Route::get('/books/{book:slug}', Show::class);
+
+Route::get('/register', Register::class)->middleware('guest');
+Route::get('/login', Login::class)->middleware('guest');
+
+Route::post('/logout', Logout::class)->middleware('auth');
+Route::get('/settings', ClientDashboard::class)->middleware('auth');
+
 
 Route::get('/dashboard/admin', AdminsManager::class)->middleware('can:admin');
 //........... Admins CRUD...........
-Route::get('/admin/register', AdminCreate::class)->middleware('can:admin');
-Route::post('/admin/{user:id}/edit', AdminUpdate::class)->middleware('can:admin');
-Route::post('/admin/delete', AdminDelete::class)->middleware('can:admin');
+Route::get('/dashboard/admin/create', AdminCreate::class)->middleware('can:admin');
+Route::get('/dashboard/admin/{user:id}/edit', AdminUpdate::class)->middleware('can:admin');
+Route::post('/dashboard/admin/delete', AdminDelete::class)->middleware('can:admin');
+
 
 Route::get('/dashboard', Dashboard::class)->middleware('can:manager');
 //...........Books CRUD............
-Route::get('/dashboard/create', BookCreate::class)->middleware('can:manager');
-Route::post('/dashboard/{book:id}/edit', BookUpdate::class)->middleware('can:manager');
-Route::post('/dashboard/delete', BookDelete::class)->middleware('can:manager');
+Route::get('/dashboard/book/create', BookCreate::class)->middleware('can:manager');
+Route::get('/dashboard/book/{book:id}/edit', BookUpdate::class)->middleware('can:manager');
+Route::post('/dashboard/book/delete', BookDelete::class)->middleware('can:manager');
 
-Route::get('/settings', ClientDashboard::class);
+//...........Category CRUD............
+Route::get('/dashboard/category/create', CategoryCreate::class)->middleware('can:manager');
+Route::get('/dashboard/category/{book:id}/edit', CategoryUpdate::class)->middleware('can:manager');
+Route::post('/dashboard/category/delete', CategoryDelete::class)->middleware('can:manager');
+
+//...........Author CRUD............
+Route::get('/dashboard/author/create', AuthorCreate::class)->middleware('can:manager');
+Route::get('/dashboard/author/{book:id}/edit', AuthorUpdate::class)->middleware('can:manager');
+Route::post('/dashboard/author/delete', AuthorDelete::class)->middleware('can:manager');
+Route::get('/categories', function () {
+    $categories = Category::tree()->get()->toTree();
+
+    return view('categories', [
+        'categories' => $categories
+    ]);
+});
 
 
-Route::get('/register', Register::class);
-
-Route::get('/login', Login::class)->name('login');
-
-Route::post('/logout', Logout::class);
 
 Route::get('/forget-password', ForgetPassword_Create::class);
 Route::post('/forget-password', ForgetPassword_Store::class);
 
 Route::get('/reset-password/{token}', ResetPassword_Create::class);
 Route::post('/reset-password', ResetPassword_Store::class);
-
-Route::get('admin/tasks', [App\Http\Controllers\Admin\TaskController::class, 'index'])->middleware('is_admin');
-
-Route::get('user/tasks', [App\Http\Controllers\User\TaskController::class, 'index']);

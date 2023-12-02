@@ -14,34 +14,30 @@ class Login extends Component
     public $books;
     public function mount()
     {
-        $this->comments= Comment::all();
-        $this->books= Book::all();
+        $this->comments = Comment::all();
+        $this->books = Book::all();
     }
-    protected $rules = [
-        'email'=> ['required','email'],
-        'password'=> ['required','min:5','max:255']
-    ];
+
     public function login()
     {
-        $this->validate();
+        $attributes = $this->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required', 'max:30']
+        ]);
 
-        if(!auth()->attempt($this->validate()))
-        {
-            // throw ValidationException::withMessages(['login'=>'Invalid email or password ']);
-            return redirect('/login')->with(['error'=> 'Invalid email or password']);
+        if (!auth()->attempt($attributes)) {
+            return $this->addError('login', 'Invalid email or password');
         }
+
         session()->regenerate();
-        if(auth()->user()->is_admin==true)
-        {
-            return redirect('/dashboard/admin')->with('success',' Welcome Back ADMIN ! '.auth()->user()?->username);
-        }
-        else
-        {
-            return redirect('/')->with('success',' Welcome Back ! '.auth()->user()?->username);
+        if (auth()->user()->is_admin == true) {
+            return redirect('/dashboard/admin')->with('success', ' Welcome Back ADMIN ! ' . auth()->user()?->username);
+        } else {
+            return redirect('/')->with('success', ' Welcome Back ! ' . auth()->user()?->username);
         }
     }
     public function render()
     {
-        return view('pages.auth.login')->layout('components.templates.auth',['title' => 'Login']);
+        return view('pages.auth.login')->layout('components.templates.auth', ['title' => 'Login']);
     }
 }

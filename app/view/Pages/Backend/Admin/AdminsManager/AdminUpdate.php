@@ -15,31 +15,30 @@ class AdminUpdate extends Component
 
     public function mount()
     {
-        $this->comments= Comment::all();
+        $this->comments = Comment::all();
     }
 
     protected $rules = [
-        'username'=> ['required','min:5','max:255'],
-        'email'=> ['required','email'],
-        'password'=> ['required','min:5','max:255']
+        'username' => ['required', 'min:5', 'max:255'],
+        'email' => ['required', 'email'],
+        'password' => ['required', 'min:5', 'max:255']
     ];
 
     public function adminedit()
     {
         $this->validate();
 
-        $user=User::create([
-            'username'=> $this->username,
-            'email'=> $this->email,
-            'password'=> $this->password,
-            'role_id'=>2
+        $user = User::create([
+            'username' => $this->username,
+            'email' => $this->email,
+            'password' => $this->password,
+            'role_id' => 2
         ]);
         auth()->login($user);
-        redirect('/dashboard/admin')->with('success','Your Admin User has been updated!');
-
+        redirect('/dashboard/admin')->with('success', 'Your Admin User has been updated!');
     }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager.admin-update')->layout('components.templates.app',['title' => 'Update the Admin']);
+        return view('pages.backend.admin.admins-manager.admin-update')->layout('components.templates.app', ['title' => 'Update the Admin']);
     }
 }

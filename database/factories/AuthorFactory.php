@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,8 @@ class AuthorFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->sentence(),
-            'slug'=>$this->faker->slug()
+            'name'=>$name=$this->faker->sentence(),
+            'slug'=>Str::slug($name)
         ];
     }
 }

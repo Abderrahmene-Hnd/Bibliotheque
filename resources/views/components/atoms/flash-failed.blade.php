@@ -12,4 +12,3 @@
         <span>{{ $message }}</span>
     </div>
 @enderror
-

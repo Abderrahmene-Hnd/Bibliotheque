@@ -15,7 +15,7 @@
 
 <body class="min-h-screen bg-slate-50 ">
     @yield('body')
-    <x-atoms.auth-success />
+    <x-atoms.flash-success />
     <livewire:scripts />
 </body>
 

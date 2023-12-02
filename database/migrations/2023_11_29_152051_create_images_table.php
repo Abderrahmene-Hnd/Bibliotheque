@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id')->constrained()->cascadeOnDelete();
-            $table->string('path');
+            $table->unsignedBigInteger('imageable_id');
+            $table->string('imageable_type');
+            $table->string('url');
             $table->timestamps();
         });
     }

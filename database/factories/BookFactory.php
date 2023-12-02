@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,8 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
-            'slug' => $this->faker->slug(),
+            'title' => $title=$this->faker->sentence(),
+            'slug'=>Str::slug($title),
             'excerpt' => $this->faker->paragraph(2),
             'body' => $this->faker->paragraph(5),
         ];

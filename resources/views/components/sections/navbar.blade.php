@@ -20,7 +20,7 @@
                         </form>
                         <span class="">Hello {{ auth()->user()?->username }}</span>
                     @else
-                        <a href="{{ route('login') }}" class="hover:opacity-80">LogIn</a>
+                        <a href="/login" class="hover:opacity-80">LogIn</a>
                         <a href="/register" class="hover:opacity-80">Register</a>
                     @endauth
 

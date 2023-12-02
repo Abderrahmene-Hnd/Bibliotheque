@@ -1,5 +1,5 @@
 <h1 class="mt-12 text-5xl font-semibold text-center text-red-500">Manage the Admins</h1>
-<h3 class="container mx-auto mt-5 text-xl font-semibold"><a href="/admin/register"
+<h3 class="container mx-auto mt-5 text-xl font-semibold"><a href="/dashboard/admin/create"
         class="border border-indigo-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-3.5">Create a new Admin</a>
 </h3>
 
@@ -72,12 +72,11 @@
                                         </p>
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        <a href=" /dashboard/{{ $user->id }}/edit"
+                                        <a href=" /dashboard/admin/{{ $user->id }}/edit"
                                             class="text-blue-500 hover:text-blue-600">Edit</a>
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                        {{-- <form method="POST" action="/admin/posts/{{ $user->id }}">
-                                                @csrf
+                                        {{-- <form method="POST" action="/dashboard/admin/posts/{{ $user->id }}">
                                                 @method('DELETE')
                                             </form> --}}
                                         <button class="text-red-400 hover:text-red-600">Delete</button>

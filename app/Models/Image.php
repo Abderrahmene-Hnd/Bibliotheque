@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\Models\Book;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Image extends Model
 {
     use HasFactory;
-    public function book()
+    public function imageable(): MorphTo
     {
-        return $this->belongsTo(Book::class);
+        return $this->morphTo();
     }
 }

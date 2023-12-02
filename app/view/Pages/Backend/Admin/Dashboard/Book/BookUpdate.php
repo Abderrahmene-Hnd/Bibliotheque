@@ -1,6 +1,6 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\Dashboard;
+namespace App\view\Pages\Backend\Admin\Dashboard\Book;
 
 use App\Models\Book;
 use App\Models\Author;
@@ -40,6 +40,6 @@ class BookUpdate extends Component
     }
     public function render()
     {
-        return view('pages.backend.admin.dashboard.book-update')->layout('components.templates.app',['title' => 'Update the Book']);
+        return view('pages.backend.admin.dashboard.book.book-update')->layout('components.templates.app',['title' => 'Update the Book']);
     }
 }

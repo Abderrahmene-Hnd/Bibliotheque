@@ -4,7 +4,7 @@
         <form method="POST" action="/reset-password">
             @csrf
             <input type="text" name="token" value="{{ $this->token }}" hidden>
-            <x-atoms.sucess-show/>
+            <x-atoms.sucess-show />
             <livewire:components.atoms.label name="email" class="" />
             <livewire:components.atoms.input name="email" type="email" class="border-2 border-indigo-500 my-2"
                 holder="" attributes="required" />
@@ -12,7 +12,7 @@
             <livewire:components.atoms.input name="password" type="password" class="border-2 border-indigo-500 my-2"
                 holder="" attributes="required" />
             <livewire:components.atoms.label name="Repeat password" class="" />
-            <livewire:components.atoms.input name="password_confirmation" type="password"
+            <livewire:components.atoms.input name="passwordConfirmation" type="password"
                 class="border-2 border-indigo-500 my-2" holder="" attributes="required" />
             <x-atoms.button class="mt-3" content="RESET" />
         </form>
