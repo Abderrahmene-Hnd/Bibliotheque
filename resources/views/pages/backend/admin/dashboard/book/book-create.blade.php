@@ -1,29 +1,29 @@
 <div class="mt-20">
     <div class="mx-auto max-w-3xl border shadow overflow-hidden bg-white rounded-xl p-10">
         <h1 class="text-3xl text-indigo-500 text-center font-bold my-4 ">Create a new Book</h1>
-        <form wire:submit.prevent="bookcreate">
+        <form wire:submit.prevent="bookCreate">
 
             <div>
                 <label for="categoryinput" class="block mb-1 uppercase font-bold text-gray-700 text-sm">category</label>
-                <select wire:model.lazy="categoryinput" name="category" id="category"
+                <select wire:model.lazy="categoryInput" name="category" id="category"
                     class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
                     <option value="">Choose category</option>
                     @foreach ($categories as $category)
-                        @if ($loop->iteration < 5)
+                        @if ($category->parent_id == null)
                             <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
                                 {{ $category->title }}</option>
-                            @foreach ($category->children as $child)
-                                <div style="margin-left: 20px;">
-                                    <option value="{{ $child->id }}">{{ $child->title }}</option>
-                                </div>
-                            @endforeach
                         @endif
+                        @foreach ($category->children as $child)
+                            <div style="margin-left: 20px;">
+                                <option value="{{ $child->id }}">{{ $child->title }}</option>
+                            </div>
+                        @endforeach
                     @endforeach
                 </select>
             </div>
             <div class="my-2">
                 <label for="author" class="block mb-1 uppercase font-bold text-gray-700 text-sm">author</label>
-                <select wire:model.lazy="authorinput" name="author" id="author"
+                <select wire:model.lazy="authorInput" name="author" id="author"
                     class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
                     <option value="">Choose author</option>
                     @foreach ($authors as $author)
@@ -34,7 +34,8 @@
 
             <div class="my-2">
                 <label for="title" class="block mb-1 uppercase font-bold text-gray-700 text-sm ">title</label>
-                <x-atoms.input name="title" type="text" class="" holder="" model="titleinput" />
+                <x-atoms.input value="" model="titleInput" name="title" type="text" class=""
+                    holder="" />
                 @error('title')
                     <p class='text-red-500 text-xs mt-2'>{{ $message }}</p>
                 @enderror
@@ -42,9 +43,9 @@
 
             <div class="my-2">
                 <label for="excerpt" class="block mb-1 mt-4 uppercase font-bold text-gray-700 text-sm">excerpt</label>
-                <textarea wire:model.lazy="excerptinput"
-                    class="border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2 " name="excerpt"
-                    id="comment" placeholder="Write something" rows="5" required></textarea>
+                <textarea wire:model.lazy="excerptInput"
+                    class="border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2 "
+                    name="excerpt" id="comment" placeholder="Write something" rows="5" required></textarea>
                 @error('excerpt')
                     <p class='text-red-500 text-xs mt-2'>{{ $message }}</p>
                 @enderror
@@ -52,9 +53,9 @@
 
             <div class="my-2">
                 <label for="body" class="block mb-1 uppercase font-bold text-gray-700 text-sm">body</label>
-                <textarea wire:model.lazy="bodyinput"
-                    class="border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2 " name="body"
-                    id="body" placeholder="Write something" rows="8" required></textarea>
+                <textarea wire:model.lazy="bodyInput"
+                    class="border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2 "
+                    name="body" id="body" placeholder="Write something" rows="8" required></textarea>
                 @error('body')
                     <p class='text-red-500 text-xs mt-2'>{{ $message }}</p>
                 @enderror
@@ -75,7 +76,7 @@
                             <label for="image"
                                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                 <span>Upload a Image</span>
-                                <input wire:model="image" id="image" name="image" type="file"
+                                <input wire:model="imageInput" id="image" name="image" type="file"
                                     class="sr-only">
                             </label>
                             <p class="pl-1">or drag and drop</p>
@@ -85,6 +86,7 @@
                 </div>
             </div>
             <x-atoms.button class="" content="CREATE" />
+            <x-atoms.show-errors />
         </form>
     </div>
 </div>

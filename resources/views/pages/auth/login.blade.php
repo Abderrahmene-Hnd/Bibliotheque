@@ -4,17 +4,19 @@
         <form wire:submit.prevent="login">
 
             <label for="email" class="block font-medium leading-6 text-gray-900 text-sm">EMAIL</label>
-            <x-atoms.input model="email" name="email" type="email" class="mb-4 p-2 my-1" holder="" />
+            <x-atoms.input value="" model="email" name="email" type="email" class="mb-4 p-2 my-1"
+                holder="" />
             @error('email')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror
             <label for="password" class="block font-medium leading-6 text-gray-900 text-sm">PASSWORD</label>
-            <x-atoms.input model="password" name="password" type="password" class="mb-4 p-2 my-1" holder="" />
+            <x-atoms.input value="" model="password" name="password" type="password" class="mb-4 p-2 my-1"
+                holder="" />
             @error('password')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror
             <div class="text-indigo-500 my-2">
-                <a href="/forget-password" >Forget your password ?</a>
+                <a href="/forget-password">Forget your password ?</a>
             </div>
 
             <x-atoms.button class="" content="LOG IN" />

@@ -8,6 +8,7 @@ use App\Models\Comment;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 
 
 class BookCreate extends Component
@@ -15,27 +16,38 @@ class BookCreate extends Component
     use WithFileUploads;
     public $authors;
     public $categories;
-    public $categoryinput;
-    public $authorinput;
-    public $titleinput;
-    // public $imageinput;
-    public $excerptinput;
-    public $bodyinput;
+    public $categoryInput;
+    public $authorInput;
+    public $titleInput;
+    public $imageInput;
+    public $excerptInput;
+    public $bodyInput;
 
     public function mount()
     {
         $this->authors=Author::all();
         $this->categories=Category::all();
     }
-    public function bookcreate()
+    public function bookCreate(Book $book)
     {
-        Book::create([
-            'category_id'=>$this->categoryinput,
-            'author_id'=>$this->authorinput,
-            //'image_id'=>$this->imageinput->store('imageinput'),
-            'title'=>$this->titleinput,
-            'excerpt'=>$this->excerptinput,
-            'body'=>$this->bodyinput,
+        $this->validate([
+            'titleInput'=> ['required','min:2','max:255'],
+            'excerptInput'=> ['required','min:5','max:2555'],
+            'bodyInput'=> ['required','min:5','max:2555'],
+            'imageInput'=> ['required'],
+            'categoryInput'=> ['required'],
+            'authorInput'=> ['required']
+        ]);
+        $book->create([
+            'category_id'=>$this->categoryInput,
+            'author_id'=>$this->authorInput,
+            'title'=>$this->titleInput,
+            'slug'=>str::slug($this->titleInput),
+            'excerpt'=>$this->excerptInput,
+            'body'=>$this->bodyInput,
+        ]);
+        $book->orderBy('id', 'desc')->first()->image()->create([
+            'url'=>$this->imageInput->store('images'),
         ]);
         redirect('/dashboard')->with('success','Your book have been created !');
     }

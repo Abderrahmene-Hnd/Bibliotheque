@@ -8,25 +8,25 @@ use Livewire\Component;
 
 class AdminCreate extends Component
 {
-    public $username;
-    public $email;
-    public $password;
+    public $usernameInput;
+    public $emailInput;
+    public $passwordInput;
+    public $adminType;
 
-    protected $rules = [
-        'username'=> ['required','min:5','max:255'],
-        'email'=> ['required','email'],
-        'password'=> ['required','min:5','max:255']
-    ];
-
-    public function adminregister()
+    public function adminCreate()
     {
-        $this->validate();
+        $this->validate([
+            'usernameInput'=> ['required','min:5','max:255'],
+            'emailInput'=> ['required','email'],
+            'passwordInput'=> ['required','min:5','max:255'],
+            'adminType'=> ['required']
+        ]);
 
         $user=User::create([
-            'username'=> $this->username,
-            'email'=> $this->email,
-            'password'=> $this->password,
-            'role_id'=>2
+            'username'=> $this->usernameInput,
+            'email'=> $this->emailInput,
+            'password'=> $this->passwordInput,
+            'role_id'=>$this->adminType,
         ]);
         auth()->login($user);
         redirect('/dashboard')->with('success','Your Admin account has been created !');

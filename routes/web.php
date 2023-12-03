@@ -12,19 +12,15 @@ use App\view\Pages\Backend\Admin\AdminsManager;
 use App\view\Pages\Backend\Client\ClientDashboard;
 
 use App\view\Pages\Backend\Admin\AdminsManager\AdminCreate;
-use App\view\Pages\Backend\Admin\AdminsManager\AdminDelete;
 use App\view\Pages\Backend\Admin\AdminsManager\AdminUpdate;
 
 use App\view\Pages\Backend\Admin\Dashboard\Category\CategoryCreate;
-use App\view\Pages\Backend\Admin\Dashboard\Category\CategoryDelete;
 use App\view\Pages\Backend\Admin\Dashboard\Category\CategoryUpdate;
 
 use App\view\Pages\Backend\Admin\Dashboard\Author\AuthorCreate;
-use App\view\Pages\Backend\Admin\Dashboard\Author\AuthorDelete;
 use App\view\Pages\Backend\Admin\Dashboard\Author\AuthorUpdate;
 
 use App\view\Pages\Backend\Admin\Dashboard\Book\BookCreate;
-use App\view\Pages\Backend\Admin\Dashboard\Book\BookDelete;
 use App\view\Pages\Backend\Admin\Dashboard\Book\BookUpdate;
 
 use App\view\Pages\Auth\PasswordManager\ResetPassword_Store;
@@ -45,27 +41,30 @@ Route::get('/settings', ClientDashboard::class)->middleware('auth');
 
 
 Route::get('/dashboard/admin', AdminsManager::class)->middleware('can:admin');
-//........... Admins CRUD...........
+
 Route::get('/dashboard/admin/create', AdminCreate::class)->middleware('can:admin');
-Route::get('/dashboard/admin/{user:id}/edit', AdminUpdate::class)->middleware('can:admin');
-Route::post('/dashboard/admin/delete', AdminDelete::class)->middleware('can:admin');
+Route::get('/dashboard/admin/{id}/edit', AdminUpdate::class)->middleware('can:admin');
 
 
 Route::get('/dashboard', Dashboard::class)->middleware('can:manager');
-//...........Books CRUD............
+
 Route::get('/dashboard/book/create', BookCreate::class)->middleware('can:manager');
-Route::get('/dashboard/book/{book:id}/edit', BookUpdate::class)->middleware('can:manager');
-Route::post('/dashboard/book/delete', BookDelete::class)->middleware('can:manager');
+Route::get('/dashboard/book/{id}/edit', BookUpdate::class)->middleware('can:manager');
 
-//...........Category CRUD............
 Route::get('/dashboard/category/create', CategoryCreate::class)->middleware('can:manager');
-Route::get('/dashboard/category/{book:id}/edit', CategoryUpdate::class)->middleware('can:manager');
-Route::post('/dashboard/category/delete', CategoryDelete::class)->middleware('can:manager');
+Route::get('/dashboard/category/{id}/edit', CategoryUpdate::class)->middleware('can:manager');
 
-//...........Author CRUD............
 Route::get('/dashboard/author/create', AuthorCreate::class)->middleware('can:manager');
-Route::get('/dashboard/author/{book:id}/edit', AuthorUpdate::class)->middleware('can:manager');
-Route::post('/dashboard/author/delete', AuthorDelete::class)->middleware('can:manager');
+Route::get('/dashboard/author/{id}/edit', AuthorUpdate::class)->middleware('can:manager');
+
+
+
+
+
+
+
+
+
 Route::get('/categories', function () {
     $categories = Category::tree()->get()->toTree();
 
@@ -81,3 +80,4 @@ Route::post('/forget-password', ForgetPassword_Store::class);
 
 Route::get('/reset-password/{token}', ResetPassword_Create::class);
 Route::post('/reset-password', ResetPassword_Store::class);
+

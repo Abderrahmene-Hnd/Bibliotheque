@@ -2,15 +2,16 @@
 
 namespace App\view\Components\Sections;
 
+use App\Models\Book;
 use Livewire\Component;
 use App\Models\Features;
 
 class feature extends Component
 {
-    public $features;
+    public $books;
     public function mount()
     {
-        $this->features=Features::all();
+        $this->books=Book::all();
     }
     public function render()
     {

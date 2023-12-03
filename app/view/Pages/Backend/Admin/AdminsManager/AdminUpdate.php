@@ -2,41 +2,47 @@
 
 namespace App\view\Pages\Backend\Admin\AdminsManager;
 
+use App\Models\Book;
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
 
 class AdminUpdate extends Component
 {
+    public $userInfos;
     public $comments;
-    public $username;
-    public $email;
-    public $password;
+    public $userId;
+    public $usernameInput;
+    public $emailInput;
+    public $passwordInput;
+    public $adminType;
 
-    public function mount()
+    public function mount($id)
     {
+        $this->userInfos = User::find($id);
+        $this->adminType = $this->userInfos->role_id;
+        $this->usernameInput = $this->userInfos->username;
+        $this->emailInput = $this->userInfos->email;
+        $this->userId = $id;
         $this->comments = Comment::all();
     }
-
-    protected $rules = [
-        'username' => ['required', 'min:5', 'max:255'],
-        'email' => ['required', 'email'],
-        'password' => ['required', 'min:5', 'max:255']
-    ];
-
-    public function adminedit()
+    public function adminEdit(User $user)
     {
-        $this->validate();
-
-        $user = User::create([
-            'username' => $this->username,
-            'email' => $this->email,
-            'password' => $this->password,
-            'role_id' => 2
+        $this->validate([
+            'usernameInput' => ['required', 'min:5', 'max:255'],
+            'emailInput' => ['required', 'email'],
+            'passwordInput' => ['required', 'min:5', 'max:255'],
+            'adminType' => ['required']
         ]);
-        auth()->login($user);
+        $user->whereId($this->userId)->update([
+            'username' => $this->usernameInput,
+            'email' => $this->emailInput,
+            'password' => $this->passwordInput,
+            'role_id' => $this->adminType
+        ]);
         redirect('/dashboard/admin')->with('success', 'Your Admin User has been updated!');
     }
+
     public function render()
     {
         return view('pages.backend.admin.admins-manager.admin-update')->layout('components.templates.app', ['title' => 'Update the Admin']);

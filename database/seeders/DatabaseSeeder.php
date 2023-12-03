@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //Features :
-        Features::factory()->create(["image" => "images/poor-dad-rich-dad.jpg"]);
-        Features::factory()->create(["image" => "images/2657.jpg"]);
-        Features::factory()->create(["image" => "images/9717.jpg"]);
-        Features::factory()->create(["image" => "images/63697.jpg"]);
-        Features::factory()->create(["image" => "images/128029.jpg"]);
-        Features::factory()->create(["image" => "images/10073506.jpg"]);
+        // Features::factory()->create(["image" => "images/poor-dad-rich-dad.jpg"]);
+        // Features::factory()->create(["image" => "images/2657.jpg"]);
+        // Features::factory()->create(["image" => "images/9717.jpg"]);
+        // Features::factory()->create(["image" => "images/63697.jpg"]);
+        // Features::factory()->create(["image" => "images/128029.jpg"]);
+        // Features::factory()->create(["image" => "images/10073506.jpg"]);
 
         Comment::factory(2)->create([
             'user_id' => rand(1, 10)
@@ -84,57 +84,123 @@ class DatabaseSeeder extends Seeder
         //Category::factory(10)->create();
 
         //authors:
-        Author::factory(10)->create();
+        //Author::factory(10)->create();
 
         //books:
-        Book::factory(10)->create();
+        //Book::factory(10)->create();
 
-
-        Author::first()->image()->create([
-            'url' => 'chaklaaAuthor.png'
-        ]);
         // Category::first()->image()->create([
         //     'url'=>'chaklaaCategory.png'
         // ]);
-        Book::first()->image()->create([
-            'url' => 'chaklaaBook.png'
-        ]);
+
 
 
         //main categories
-        Category::factory()->create([
-            'title' => 'anime',
-            'id'=>1
+        Category::create([
+            'title' => $title='anime',
+            'slug' => Str::slug($title),
+            'id'=> 1
         ]);
-        Category::factory()->create([
-            'title' => 'romance',
-            'id'=>2
+        Category::create([
+            'title' => $title='romance',
+            'slug' => Str::slug($title),
+            'id'=> 2
         ]);
-        Category::factory()->create([
-            'title' => 'philosophie',
-            'id'=>3
+        Category::create([
+            'title' => $title='philosophie',
+            'slug' => Str::slug($title),
+            'id'=> 3
         ]);
-        Category::factory()->create([
-            'title' => 'politics',
-            'id'=>4
+        Category::create([
+            'title' => $title='politics',
+            'slug' => Str::slug($title),
+            'id'=> 4
         ]);
 
         //variantes of each category :
-        Category::factory(3)->create([
-            'title' => 'anime_variations',
+        Category::create([
+            'title' => $title='anime_variation 1',
+            'slug' => Str::slug($title),
             'parent_id' => 1
         ]);
-        Category::factory(3)->create([
-            'title' => 'romance_variations',
+        Category::create([
+            'title' => $title='anime_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 1
+        ]);
+        Category::create([
+            'title' => $title='anime_variation 3',
+            'slug' => Str::slug($title),
+            'parent_id' => 1
+        ]);
+        Category::create([
+            'title' => $title='anime_variation 4',
+            'slug' => Str::slug($title),
+            'parent_id' => 1
+        ]);
+
+        Category::create([
+            'title' => $title='romance_variation 1',
+            'slug' => Str::slug($title),
             'parent_id' => 2
         ]);
-        Category::factory(3)->create([
-            'title' => 'philo_variations',
+        Category::create([
+            'title' => $title='romance_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 2
+        ]);
+        Category::create([
+            'title' => $title='romance_variation 3',
+            'slug' => Str::slug($title),
+            'parent_id' => 2
+        ]);
+        Category::create([
+            'title' => $title='romance_variation 4',
+            'slug' => Str::slug($title),
+            'parent_id' => 2
+        ]);
+
+        Category::create([
+            'title' => $title='philo_variation 1',
+            'slug' => Str::slug($title),
             'parent_id' => 3
         ]);
-        Category::factory(3)->create([
-            'title' => 'politics_variations',
-            'parent_id'=> 4
+        Category::create([
+            'title' => $title='philo_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 3
+        ]);
+        Category::create([
+            'title' => $title='philo_variation 3',
+            'slug' => Str::slug($title),
+            'parent_id' => 3
+        ]);
+        Category::create([
+            'title' => $title='philo_variation 4',
+            'slug' => Str::slug($title),
+            'parent_id' => 3
+        ]);
+
+
+        Category::create([
+            'title' => $title='politics_variation 1',
+            'slug' => Str::slug($title),
+            'parent_id' => 4
+        ]);
+        Category::create([
+            'title' => $title='politics_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 4
+        ]);
+        Category::create([
+            'title' => $title='politics_variation 3',
+            'slug' => Str::slug($title),
+            'parent_id' => 4
+        ]);
+        Category::create([
+            'title' => $title='politics_variation 4',
+            'slug' => Str::slug($title),
+            'parent_id' => 4
         ]);
     }
 }

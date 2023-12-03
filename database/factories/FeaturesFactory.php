@@ -17,7 +17,7 @@ class FeaturesFactory extends Factory
     public function definition(): array
     {
         return [
-        "title"=> $this->faker->sentence(),
+        "title"=> $this->faker->title(),
         "excerpt"=> $this->faker->paragraph(),
         "body"=> $this->faker->paragraph(5)
         ];

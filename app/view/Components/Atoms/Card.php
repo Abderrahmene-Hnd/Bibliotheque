@@ -7,7 +7,7 @@ use App\Models\Features;
 
 class Card extends Component
 {
-    public $feature;
+    public $book;
     public $class;
     public function render()
     {

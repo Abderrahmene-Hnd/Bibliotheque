@@ -9,10 +9,17 @@ use Illuminate\Validation\Validator;
 
 class ClientDashboard extends Component
 {
+    public $userInfos;
     public $username;
     public $email;
     public $newPassword;
     public $oldPassword;
+    public function mount()
+    {
+        $this->userInfos=auth()->user();
+        $this->username=$this->userInfos->username;
+        $this->email=$this->userInfos->email;
+    }
     public function updatedUsername()
     {
         $this->validate([

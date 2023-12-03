@@ -3,23 +3,26 @@
         <h1 class="text-4xl text-indigo-500 text-center font-bold my-4 ">Register</h1>
         <form wire:submit.prevent="register">
             <label for="username" class="font-semibold text-sm">USERNAME</label>
-            <x-atoms.input model="username" name="username" type="text" class="mb-4 p-2 my-1" holder="" />
+            <x-atoms.input value="" model="username" name="username" type="text" class="mb-4 p-2 my-1"
+                holder="" />
             @error('username')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror
             <label for="email" class="font-semibold text-sm">EMAIL</label>
-            <x-atoms.input model="email" name="email" type="email" class="mb-4 p-2 my-1" holder="" />
+            <x-atoms.input value="" model="email" name="email" type="email" class="mb-4 p-2 my-1"
+                holder="" />
             @error('email')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror
             <label for="password" class="font-semibold text-sm">PASSWORD</label>
-            <x-atoms.input model="password" name="password" type="password" class="mb-4 p-2 my-1" holder="" />
+            <x-atoms.input value="" model="password" name="password" type="password" class="mb-4 p-2 my-1"
+                holder="" />
             @error('password')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror
             <label for="passwordConfirmation" class="font-semibold text-sm">PASSWORD CONFIRMATION</label>
-            <x-atoms.input model="passwordConfirmation" name="passwordConfirmation" type="password" class="mb-4 p-2 my-1"
-                holder="" />
+            <x-atoms.input value="" model="passwordConfirmation" name="passwordConfirmation" type="password"
+                class="mb-4 p-2 my-1" holder="" />
             @error('passwordConfirmation')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror

@@ -25,7 +25,7 @@ class Comments extends Component
     }
     public function getCommentsProperty()
     {
-        return Comment::paginate(5);
+        return Comment::all()->sortDesc();
     }
     public function render()
     {

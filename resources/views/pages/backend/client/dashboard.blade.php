@@ -7,7 +7,8 @@
             <div class="sm:col-span-4">
                 <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                 <div class="mt-2 justify-between space-x-5 flex ">
-                    <x-atoms.input model="username" name="email" type="email" class="" holder="{{ auth()->user()->username }}" />
+                    <x-atoms.input value="" model="username" name="email" type="email" class=""
+                        holder="{{ auth()->user()->username }}" />
 
                     <button type="submit"
                         class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
@@ -19,7 +20,8 @@
                 <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
                     address</label>
                 <div class="mt-2 justify-between space-x-5 flex ">
-                    <x-atoms.input model="email" name="email" type="email" class="" holder="{{ auth()->user()->email }}" />
+                    <x-atoms.input value="" model="email" name="email" type="email" class=""
+                        holder="{{ auth()->user()->email }}" />
 
                     <button type="submit"
                         class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
@@ -34,7 +36,8 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Old
                     Password</label>
                 <div class="mt-2">
-                    <x-atoms.input model="oldPassword" name="email" type="email" class="" holder="" />
+                    <x-atoms.input value="" model="oldPassword" name="email" type="email" class=""
+                        holder="" />
                 </div>
                 @error('oldPassword')
                     <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
@@ -44,7 +47,8 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">New
                     Password</label>
                 <div class="mt-2">
-                    <x-atoms.input model="newPassword" name="email" type="email" class="" holder="" />
+                    <x-atoms.input value="" model="newPassword" name="email" type="email" class=""
+                        holder="" />
                 </div>
             </div>
             <button type="submit"

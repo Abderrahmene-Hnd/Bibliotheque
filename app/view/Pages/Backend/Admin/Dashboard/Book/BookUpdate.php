@@ -13,33 +13,55 @@ class BookUpdate extends Component
     use WithFileUploads;
     public $authors;
     public $categories;
-    public $categoryinput;
-    public $authorinput;
-    public $titleinput;
-    // public $imageinput;
-    public $excerptinput;
-    public $bodyinput;
+    public $BookId;
+    public $BookInfos;
+    public $categoryInput;
+    public $authorInput;
+    public $titleInput;
+    public $imageInput;
+    public $excerptInput;
+    public $bodyInput;
 
-    public function mount()
+    public function mount($id)
     {
-        $this->authors=Author::all();
-        $this->categories=Category::all();
+        $this->BookId = $id;
+        $this->BookInfos = Book::find($id);
+        $this->imageInput = $this->BookInfos->image?->url;
+        $this->authorInput = $this->BookInfos->author_id;
+        $this->categoryInput = $this->BookInfos->category_id;
+        $this->titleInput = $this->BookInfos->title;
+        $this->excerptInput = $this->BookInfos->excerpt;
+        $this->bodyInput = $this->BookInfos->body;
+        $this->authors = Author::all();
+        $this->categories = Category::all();
     }
-    public function bookcreate()
+    public function bookUpdate(Book $book)
     {
-        Book::create([
-            'category_id'=>$this->categoryinput,
-            'author_id'=>$this->authorinput,
-            //'image_id'=>$this->imageinput->store('imageinput'),
-            'title'=>$this->titleinput,
-            'excerpt'=>$this->excerptinput,
-            'body'=>$this->bodyinput,
+        $this->validate([
+            'titleInput' => ['required', 'min:2', 'max:255'],
+            'excerptInput' => ['required', 'min:5', 'max:255'],
+            'bodyInput' => ['required', 'min:5', 'max:255'],
+            'imageInput' => ['required'],
+            'categoryInput' => ['required'],
+            'authorInput' => ['required']
         ]);
-        redirect('/dashboard')->with('success','Your book have been updated !');
 
+        $book->whereId($this->BookId)->update([
+            'category_id' => $this->categoryInput,
+            'author_id' => $this->authorInput,
+            'title' => $this->titleInput,
+            'excerpt' => $this->excerptInput,
+            'body' => $this->bodyInput,
+        ]);
+
+        $book->whereId($this->BookId)->image()->create([
+            'url' => $this->imageInput->store('images'),
+        ]);
+
+        redirect('/dashboard')->with('success', 'Your book have been updated !');
     }
     public function render()
     {
-        return view('pages.backend.admin.dashboard.book.book-update')->layout('components.templates.app',['title' => 'Update the Book']);
+        return view('pages.backend.admin.dashboard.book.book-update')->layout('components.templates.app', ['title' => 'Update the Book']);
     }
 }
