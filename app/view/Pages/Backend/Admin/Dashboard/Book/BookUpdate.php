@@ -58,21 +58,21 @@ class BookUpdate extends Component
         ]);
 
         if ($this->categoryInput1) {
-            $bookCategory->create([
+            $bookCategory->where('book_id',Book::find($this->BookId)->id)->get()->first()->update([
                 'category_id' => $this->categoryInput1,
-                'book_id' => Book::orderBy('id', 'desc')->first()->id
+                'book_id' => Book::find($this->BookId)->id
             ]);
         }
         if ($this->categoryInput2) {
-            $bookCategory->create([
+            $bookCategory->where('book_id',Book::find($this->BookId)->id)->get()->first()->update([
                 'category_id' => $this->categoryInput2,
-                'book_id' => Book::orderBy('id', 'desc')->first()->id
+                'book_id' => Book::find($this->BookId)->id
             ]);
         }
         if ($this->categoryInput3) {
-            $bookCategory->create([
+            $bookCategory->where('book_id',Book::find($this->BookId)->id)->get()->first()->update([
                 'category_id' => $this->categoryInput3,
-                'book_id' => Book::orderBy('id', 'desc')->first()->id
+                'book_id' => Book::find($this->BookId)->id
             ]);
         }
 
