@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Author;
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\BookCategory;
 use Livewire\WithFileUploads;
 
 class BookUpdate extends Component
@@ -13,11 +14,15 @@ class BookUpdate extends Component
     use WithFileUploads;
     public $authors;
     public $categories;
+    public $categoryInput1;
+    public $categoryInput2;
+    public $categoryInput3;
     public $BookId;
     public $BookInfos;
     public $categoryInput;
     public $authorInput;
     public $titleInput;
+    public $imageOutput;
     public $imageInput;
     public $excerptInput;
     public $bodyInput;
@@ -26,7 +31,7 @@ class BookUpdate extends Component
     {
         $this->BookId = $id;
         $this->BookInfos = Book::find($id);
-        $this->imageInput = $this->BookInfos->image?->url;
+        $this->imageOutput = $this->BookInfos->image?->url;
         $this->authorInput = $this->BookInfos->author_id;
         $this->categoryInput = $this->BookInfos->category_id;
         $this->titleInput = $this->BookInfos->title;
@@ -35,34 +40,52 @@ class BookUpdate extends Component
         $this->authors = Author::all();
         $this->categories = Category::all();
     }
-    public function bookUpdate(Book $book)
+    public function bookUpdate(Book $book, BookCategory $bookCategory)
     {
         $this->validate([
             'titleInput' => ['required', 'min:2', 'max:255'],
-            'excerptInput' => ['required', 'min:5', 'max:255'],
-            'bodyInput' => ['required', 'min:5', 'max:255'],
-            'imageInput' => ['required'],
-            'categoryInput' => ['required'],
+            'excerptInput' => ['required', 'min:5', 'max:2555'],
+            'bodyInput' => ['required', 'min:5', 'max:2555'],
+            'categoryInput1' => ['required'],
             'authorInput' => ['required']
         ]);
 
         $book->find($this->BookId)->update([
-            'category_id' => $this->categoryInput,
             'author_id' => $this->authorInput,
             'title' => $this->titleInput,
             'excerpt' => $this->excerptInput,
             'body' => $this->bodyInput,
         ]);
 
+        if ($this->categoryInput1) {
+            $bookCategory->create([
+                'category_id' => $this->categoryInput1,
+                'book_id' => Book::orderBy('id', 'desc')->first()->id
+            ]);
+        }
+        if ($this->categoryInput2) {
+            $bookCategory->create([
+                'category_id' => $this->categoryInput2,
+                'book_id' => Book::orderBy('id', 'desc')->first()->id
+            ]);
+        }
+        if ($this->categoryInput3) {
+            $bookCategory->create([
+                'category_id' => $this->categoryInput3,
+                'book_id' => Book::orderBy('id', 'desc')->first()->id
+            ]);
+        }
+
+
         if ($this->imageInput)
         {
-            $book->find($this->bookId)->image()->update([
+            $book->find($this->BookId)->image()->update([
                 'url' => $this->imageInput->store('images'),
             ]);
         }
         else
         {
-            $book->find($this->bookId)->image()->create([
+            $book->find($this->BookId)->image()->create([
                 'url' => $this->imageOutput
             ]);
         }

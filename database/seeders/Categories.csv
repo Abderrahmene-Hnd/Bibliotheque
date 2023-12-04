@@ -1,0 +1,16 @@
+id,title,slug,parent_id,created_at,updated_at
+1,Anime,anime,,2023-12-04 20:58:14,2023-12-04 20:58:14
+2,Romance,romance,,2023-12-04 20:58:14,2023-12-04 20:58:14
+3,Philosophie,philosophie,,2023-12-04 20:58:14,2023-12-04 20:58:14
+4,Politics,politics,,2023-12-04 20:58:14,2023-12-04 20:58:14
+5,Gaming,gaming,,2023-12-04 20:58:14,2023-12-04 20:58:14
+6,Anime_variation 1,anime-variation-1,1,2023-12-04 20:58:14,2023-12-04 20:58:14
+7,Anime_variation 2,anime-variation-2,1,2023-12-04 20:58:14,2023-12-04 20:58:14
+8,Romance_variation 1,romance-variation-1,2,2023-12-04 20:58:14,2023-12-04 20:58:14
+9,Romance_variation 2,romance-variation-2,2,2023-12-04 20:58:14,2023-12-04 20:58:14
+10,Philo_variation 1,philo-variation-1,3,2023-12-04 20:58:14,2023-12-04 20:58:14
+11,Philo_variation 2,philo-variation-2,3,2023-12-04 20:58:14,2023-12-04 20:58:14
+12,Politics_variation 1,politics-variation-1,4,2023-12-04 20:58:14,2023-12-04 20:58:14
+13,Politics_variation 2,politics-variation-2,4,2023-12-04 20:58:14,2023-12-04 20:58:14
+14,E-Sports,e-sports,5,2023-12-04 20:58:14,2023-12-04 21:39:23
+15,Action Games,action-games,5,2023-12-04 20:58:14,2023-12-04 21:39:42

@@ -80,6 +80,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Client'
         ]);
 
+
         //categories:
         //Category::factory(10)->create();
 
@@ -95,113 +96,188 @@ class DatabaseSeeder extends Seeder
 
 
 
-        //main categories
-        // Category::create([
-        //     'title' => $title='anime',
-        //     'slug' => Str::slug($title),
-        //     'id'=> 1
-        // ]);
-        // Category::create([
-        //     'title' => $title='romance',
-        //     'slug' => Str::slug($title),
-        //     'id'=> 2
-        // ]);
-        // Category::create([
-        //     'title' => $title='philosophie',
-        //     'slug' => Str::slug($title),
-        //     'id'=> 3
-        // ]);
-        // Category::create([
-        //     'title' => $title='politics',
-        //     'slug' => Str::slug($title),
-        //     'id'=> 4
-        // ]);
-
-        // //variantes of each category :
-        // Category::create([
-        //     'title' => $title='anime_variation 1',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 1
-        // ]);
-        // Category::create([
-        //     'title' => $title='anime_variation 2',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 1
-        // ]);
-        // Category::create([
-        //     'title' => $title='anime_variation 3',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 1
-        // ]);
-        // Category::create([
-        //     'title' => $title='anime_variation 4',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 1
-        // ]);
-
-        // Category::create([
-        //     'title' => $title='romance_variation 1',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 2
-        // ]);
-        // Category::create([
-        //     'title' => $title='romance_variation 2',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 2
-        // ]);
-        // Category::create([
-        //     'title' => $title='romance_variation 3',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 2
-        // ]);
-        // Category::create([
-        //     'title' => $title='romance_variation 4',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 2
-        // ]);
-
-        // Category::create([
-        //     'title' => $title='philo_variation 1',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 3
-        // ]);
-        // Category::create([
-        //     'title' => $title='philo_variation 2',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 3
-        // ]);
-        // Category::create([
-        //     'title' => $title='philo_variation 3',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 3
-        // ]);
-        // Category::create([
-        //     'title' => $title='philo_variation 4',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 3
-        // ]);
+        // Categories :
+        Category::create([
+            'title' => $title = 'Anime',
+            'slug' => Str::slug($title),
+            'id' => 1
+        ]);
+        Category::create([
+            'title' => $title = 'Romance',
+            'slug' => Str::slug($title),
+            'id' => 2
+        ]);
+        Category::create([
+            'title' => $title = 'Philosophie',
+            'slug' => Str::slug($title),
+            'id' => 3
+        ]);
+        Category::create([
+            'title' => $title = 'Politics',
+            'slug' => Str::slug($title),
+            'id' => 4
+        ]);
+        Category::create([
+            'title' => $title = 'Gaming',
+            'slug' => Str::slug($title),
+            'id' => 5
+        ]);
 
 
-        // Category::create([
-        //     'title' => $title='politics_variation 1',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 4
-        // ]);
-        // Category::create([
-        //     'title' => $title='politics_variation 2',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 4
-        // ]);
-        // Category::create([
-        //     'title' => $title='politics_variation 3',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 4
-        // ]);
-        // Category::create([
-        //     'title' => $title='politics_variation 4',
-        //     'slug' => Str::slug($title),
-        //     'parent_id' => 4
-        // ]);
+        //variantes of each category :
+        Category::create([
+            'title' => $title = 'Anime_variation 1',
+            'slug' => Str::slug($title),
+            'parent_id' => 1
+        ]);
+        Category::create([
+            'title' => $title = 'Anime_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 1
+        ]);
+
+
+        Category::create([
+            'title' => $title = 'Romance_variation 1',
+            'slug' => Str::slug($title),
+            'parent_id' => 2
+        ]);
+        Category::create([
+            'title' => $title = 'Romance_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 2
+        ]);
+
+
+
+        Category::create([
+            'title' => $title = 'Philo_variation 1',
+            'slug' => Str::slug($title),
+            'parent_id' => 3
+        ]);
+        Category::create([
+            'title' => $title = 'Philo_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 3
+        ]);
+
+
+
+        Category::create([
+            'title' => $title = 'Politics_variation 1',
+            'slug' => Str::slug($title),
+            'parent_id' => 4
+        ]);
+        Category::create([
+            'title' => $title = 'Politics_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 4
+        ]);
+
+
+        Category::create([
+            'title' => $title = 'Gaming_variation 1',
+            'slug' => Str::slug($title),
+            'parent_id' => 5
+        ]);
+
+        Category::create([
+            'title' => $title = 'Gaming_variation 2',
+            'slug' => Str::slug($title),
+            'parent_id' => 5
+        ]);
+        Category::find(1)->image()->create([
+            'url' => '3M4sfNwHJwdYkQkr6ba4sPs0MoDSWPHGmq7qEDNx.jpg'
+        ]);
+        Category::find(2)->image()->create([
+            'url' => '2Dt0Exhjk9bty6T1Npqska0kvpACOWSFQUVpiwwa.jpg'
+        ]);
+        Category::find(3)->image()->create([
+            'url' => '.jpg'
+        ]);
+        Category::find(4)->image()->create([
+            'url' => '.jpg'
+        ]);
+        Category::find(5)->image()->create([
+            'url' => '.jpg0'
+        ]);
+        Category::find(6)->image()->create([
+            'url' => '.jpg'
+        ]);
+        Category::find(7)->image()->create([
+            'url' => '.jpg'
+        ]);
+        Category::find(8)->image()->create([
+            'url' => '.jpg'
+        ]);
+
+
+        Author::create([
+            'name' => $name = 'Fyodor Dostoevsky',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Dante Alighieri',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Lev Tolstoy',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Fyodor Dostoevsky',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Dante Alighieri',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Lev Tolstoy',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Fyodor Dostoevsky',
+            'slug' => Str::slug($name),
+
+        ]);
+        Author::create([
+            'name' => $name = 'Dante Alighieri',
+            'slug' => Str::slug($name),
+
+        ]);
+
+
+        Author::find(1)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0234502/?ref_=nmls_pst'
+        ]);
+        Author::find(2)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0019604/?ref_=nmls_pst'
+        ]);
+        Author::find(3)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0866243/?ref_=nmls_pst'
+        ]);
+        Author::find(4)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0401076/?ref_=nmls_pst'
+        ]);
+        Author::find(5)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0000636/?ref_=nmls_pst'
+        ]);
+        Author::find(6)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0324473/?ref_=nmls_pst'
+        ]);
+        Author::find(7)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0148859/?ref_=nmls_pst'
+        ]);
+        Author::find(8)->image()->create([
+            'url' => 'https://www.imdb.com/name/nm0130902/?ref_=nmls_pst'
+        ]);
     }
 }
 

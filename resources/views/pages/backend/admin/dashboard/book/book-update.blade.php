@@ -3,8 +3,8 @@
         <h1 class="text-3xl text-indigo-500 text-center font-bold my-4 ">Update the Book</h1>
         <form wire:submit.prevent="bookUpdate">
             <div>
-                <label for="categoryinput" class="block mb-1 uppercase font-bold text-gray-700 text-sm">category</label>
-                <select wire:model.lazy="categoryInput" name="category" id="category"
+                <label for="categoryinput1" class="block mb-1 uppercase font-bold text-gray-700 text-sm">category</label>
+                <select wire:model.lazy="categoryInput1" name="category" id="category"
                     class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
                     <option value="">Choose category</option>
                     @foreach ($categories as $category)
@@ -19,7 +19,38 @@
                         @endif
                     @endforeach
                 </select>
+                <select wire:model.lazy="categoryInput2" name="categoryInput" id="categoryInput"
+                    class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
+                    <option value="">Choose category</option>
+                    @foreach ($categories as $category)
+                        @if ($category->parent_id == null)
+                            <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
+                                {{ $category->title }}</option>
+                        @endif
+                        @foreach ($category->children as $child)
+                            <div style="margin-left: 20px;">
+                                <option value="{{ $child->id }}">{{ $child->title }}</option>
+                            </div>
+                        @endforeach
+                    @endforeach
+                </select>
+                <select wire:model.lazy="categoryInput3" name="categoryInput" id="categoryInput"
+                    class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
+                    <option value="">Choose category</option>
+                    @foreach ($categories as $category)
+                        @if ($category->parent_id == null)
+                            <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
+                                {{ $category->title }}</option>
+                        @endif
+                        @foreach ($category->children as $child)
+                            <div style="margin-left: 20px;">
+                                <option value="{{ $child->id }}">{{ $child->title }}</option>
+                            </div>
+                        @endforeach
+                    @endforeach
+                </select>
             </div>
+
             <div class="my-2">
                 <label for="author" class="block mb-1 uppercase font-bold text-gray-700 text-sm">author</label>
                 <select wire:model.lazy="authorInput" name="authorInput" id="authorInput"
@@ -55,7 +86,7 @@
                 <div class="mb-5 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div class="grid grid-cols-2  space-x-12">
                         <div>
-                            <img class="rounded-xl" src="{{ asset('storage/' . $imageInput) }}" alt="Author Image" width="200">
+                            <img class="rounded-xl" src="{{ asset('storage/' . $imageOutput) }}" alt="Author Image" width="200">
                         </div>
                         <div class="text-center">
                             <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"

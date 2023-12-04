@@ -1,11 +1,11 @@
 <div>
     <h1 class="text-green-500 text-5xl font-semibold text-center border-b border-gray-300 pb-9">Dashboard</h1>
 
-     {{-- @foreach ($books->categories as $category)
+    {{-- @foreach ($books->categories as $category)
                 {{ $category->pivot->created_at }}
             @endforeach --}}
 
-            {{--@foreach ($categories->books as $book)
+    {{-- @foreach ($categories->books as $book)
                 {{ $book->pivot->created_at }}
             @endforeach --}}
 
@@ -58,49 +58,49 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($books as $book)
-                                         @foreach ($book->categories as $category)
-                                            <tr>
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <img src="{{ asset('storage/' . $book->image?->url) }}"
-                                                        alt="Book Image" width="50">
-                                                </td>
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                        {{ $category->pivot->title }}
-                                                    </p>
-                                                </td>
+                                        <tr>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <img src="{{ asset('storage/' . $book->image?->url) }}" alt="Book Image"
+                                                    width="50">
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                    @foreach ($book->categories as $category)
+                                                        {{ $categories->find($category->pivot->category_id)->title }}
+                                                    @endforeach
+                                                </p>
+                                            </td>
 
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                        {{ $book->author?->name }}
-                                                    </p>
-                                                </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                    {{ $book->author?->name }}
+                                                </p>
+                                            </td>
 
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                        {{ $book->title }}
-                                                    </p>
-                                                </td>
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                        {{ $book->excerpt }}
-                                                    </p>
-                                                </td>
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                        {{ $book->created_at }}
-                                                    </p>
-                                                </td>
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <button type="button" wire:click="editBook({{ $book->id }})"
-                                                        class="text-blue-500 hover:text-blue-600">Edit</button>
-                                                </td>
-                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <button type="button" wire:click="deleteBook({{ $book->id }})"
-                                                        class="text-red-500 hover:text-red-600">Delete</button>
-                                                </td>
-                                            </tr>
-                                         @endforeach 
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                    {{ $book->title }}
+                                                </p>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                    {{ $book->excerpt }}
+                                                </p>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                    {{ $book->created_at }}
+                                                </p>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <button type="button" wire:click="editBook({{ $book->id }})"
+                                                    class="text-blue-500 hover:text-blue-600">Edit</button>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <button type="button" wire:click="deleteBook({{ $book->id }})"
+                                                    class="text-red-500 hover:text-red-600">Delete</button>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

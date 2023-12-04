@@ -32,7 +32,7 @@ class CategoryUpdate extends Component
     }
     public function categoryUpdate(Category $category)
     {
-        $attributes = $this->validate([
+        $this->validate([
             'titleInput' => ['required', 'min:2', 'max:255'],
             'newOrVariante' => ['required'],
             'parentId' => [$this->newOrVariante == 2 ? 'required' : ''],

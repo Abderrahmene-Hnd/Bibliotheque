@@ -10,7 +10,7 @@
                 <div class="mb-5 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div class="grid grid-cols-2  space-x-12">
                         <div>
-                            <img class="rounded-xl" src="{{ asset('storage/' . $imageInput) }}" alt="Author Image"
+                            <img class="rounded-xl" src="{{ asset('storage/' . $imageOutput) }}" alt="Author Image"
                                 width="200">
                         </div>
                         <div class="text-center">

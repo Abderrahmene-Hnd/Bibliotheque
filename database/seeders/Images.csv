@@ -1,0 +1,24 @@
+id,imageable_id,imageable_type,url,created_at,updated_at
+1,1,Category,chaklaaCategory.png,2023-12-04 20:58:14,2023-12-04 20:58:14
+2,2,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+3,3,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+4,4,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+5,5,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+6,6,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+7,7,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+8,8,Category,https://picsum.photos/200,2023-12-04 20:58:14,2023-12-04 20:58:14
+9,1,Author,images/L5A1DFeX2Uy6xUlWmRxGX0ZZ8q8l1swfazdv83Ih.jpg,2023-12-04 20:58:14,2023-12-04 21:36:35
+10,2,Author,images/TEutiUPIhUjJSrmmtCACmvXEx9ifGMHTKAR9SGo2.jpg,2023-12-04 20:58:14,2023-12-04 21:36:28
+11,3,Author,images/wDIfGJSHUB2HWmhAGQyYz2aR4dAreKYjR34etZb9.jpg,2023-12-04 20:58:14,2023-12-04 21:36:19
+12,4,Author,images/aYilsZwqKMSdm65Qzdx2AGEn1iUpe1ClD3yOYiJE.jpg,2023-12-04 20:58:14,2023-12-04 21:36:11
+13,5,Author,images/X6FJA0bgwAmY92hcaeJaPzFTmBaRpUAPywLGwZID.jpg,2023-12-04 20:58:14,2023-12-04 21:36:05
+14,6,Author,images/P2q3ABpQTbDKzBdw8AGBaqLxRZ0mrsvwa7s3bWDu.jpg,2023-12-04 20:58:14,2023-12-04 21:35:58
+15,7,Author,images/QWJ4JrhrjeTG3nntq0bSME07Yh6rTLqAmVzjh4nt.jpg,2023-12-04 20:58:14,2023-12-04 21:35:52
+16,8,Author,images/7wshdBDYHqygzc6FhsgntHp4RntKZUdipBiAlxY6.jpg,2023-12-04 20:58:14,2023-12-04 21:35:46
+17,1,Book,images/cM5ScuYCn6MDKQiknslTiSTDIOciuZZAXmXOnSKD.jpg,2023-12-04 21:05:46,2023-12-04 21:05:46
+18,2,Book,images/0EffQCeZ9eyUwi6IAh9x0L0fe87p142Pp6e1MXM2.jpg,2023-12-04 21:06:19,2023-12-04 21:06:19
+19,3,Book,images/h1oxKLnX8cbPMM8yEheB7595j3KUpbCsLu4y8ppL.jpg,2023-12-04 21:06:46,2023-12-04 21:06:46
+20,4,Book,images/mDSgpUmVGiJNeBQhNpdO95H10CZYnLbsCO6ycjIV.jpg,2023-12-04 21:07:16,2023-12-04 21:07:16
+21,4,Book,images/mDSgpUmVGiJNeBQhNpdO95H10CZYnLbsCO6ycjIV.jpg,2023-12-04 21:26:11,2023-12-04 21:26:11
+22,5,Book,images/TLgrozxVvFUBO4XQEkoz6AD0BAxVzp2ollL6vKIg.jpg,2023-12-04 21:26:52,2023-12-04 21:26:52
+23,6,Book,images/7k2uGKwsfVYnPS4dKnQlEEAm2xO4ziTVGdnvoxrS.jpg,2023-12-04 21:30:56,2023-12-04 21:30:56

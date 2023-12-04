@@ -14,12 +14,13 @@ class AuthorUpdate extends Component
     public $authorId;
     public $authorInfos;
     public $nameInput;
+    public $imageOutput;
     public $imageInput;
 
     public function mount($id)
     {
         $this->authorInfos=Author::find($id);
-        $this->imageInput=$this->authorInfos->image?->url;
+        $this->imageOutput=$this->authorInfos->image?->url;
         $this->nameInput=$this->authorInfos->name;
         $this->authorId=$id;
     }
@@ -27,7 +28,6 @@ class AuthorUpdate extends Component
     {
         $this->validate([
             'nameInput'=> ['required','min:2','max:255'],
-            'imageInput'=> ['required']
         ]);
 
         $author->find($this->authorInfos->id)->update([
