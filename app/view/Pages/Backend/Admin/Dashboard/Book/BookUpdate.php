@@ -46,7 +46,7 @@ class BookUpdate extends Component
             'authorInput' => ['required']
         ]);
 
-        $book->whereId($this->BookId)->update([
+        $book->find($this->BookId)->update([
             'category_id' => $this->categoryInput,
             'author_id' => $this->authorInput,
             'title' => $this->titleInput,
@@ -54,9 +54,18 @@ class BookUpdate extends Component
             'body' => $this->bodyInput,
         ]);
 
-        $book->whereId($this->BookId)->image()->create([
-            'url' => $this->imageInput->store('images'),
-        ]);
+        if ($this->imageInput)
+        {
+            $book->find($this->bookId)->image()->update([
+                'url' => $this->imageInput->store('images'),
+            ]);
+        }
+        else
+        {
+            $book->find($this->bookId)->image()->create([
+                'url' => $this->imageOutput
+            ]);
+        }
 
         redirect('/dashboard')->with('success', 'Your book have been updated !');
     }

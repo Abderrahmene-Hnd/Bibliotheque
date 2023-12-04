@@ -2,10 +2,11 @@
 
 namespace App\view\Pages\Backend\Admin\Dashboard\Category;
 
-use App\Models\Category;
 use Livewire\Component;
-use Livewire\WithFileUploads;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryUpdate extends Component
 {
@@ -15,6 +16,7 @@ class CategoryUpdate extends Component
     public $categoryInfos;
     public $titleInput;
     public $imageInput;
+    public $imageOutput;
     public $newOrVariante;
     public $parentId;
 
@@ -22,7 +24,7 @@ class CategoryUpdate extends Component
     {
         $this->categories = Category::all();
         $this->categoryInfos = Category::find($id);
-        $this->imageInput = $this->categoryInfos->image?->url;
+        $this->imageOutput = $this->categoryInfos->image?->url;
         $this->titleInput = $this->categoryInfos->title;
         $this->categoryInfos->parent_id == null ? $this->newOrVariante = 1 : $this->newOrVariante = 2;
         $this->parentId = $this->categoryInfos->parent_id;
@@ -30,22 +32,30 @@ class CategoryUpdate extends Component
     }
     public function categoryUpdate(Category $category)
     {
-        $this->validate([
+        $attributes = $this->validate([
             'titleInput' => ['required', 'min:2', 'max:255'],
-            'imageInput' => ['required'],
             'newOrVariante' => ['required'],
             'parentId' => [$this->newOrVariante == 2 ? 'required' : ''],
         ]);
 
-        $category->whereId($this->categoryId)->update([
+        $category->find($this->categoryId)->update([
             'title' => $this->titleInput,
             'slug' => str::slug($this->titleInput),
             'parent_id' => $this->parentId ?? null
         ]);
 
-        $category->whereId($this->categoryId)->image()->create([
-            'url' => $this->imageInput->store('images'),
-        ]);
+        if ($this->imageInput)
+        {
+            $category->find($this->categoryId)->image()->update([
+                'url' => $this->imageInput->store('images'),
+            ]);
+        }
+        else
+        {
+            $category->find($this->categoryId)->image()->create([
+                'url' => $this->imageOutput
+            ]);
+        }
 
         redirect('/dashboard')->with('success', 'The Category have been updated !');
     }

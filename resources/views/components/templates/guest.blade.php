@@ -1,5 +1,5 @@
 @extends('components.templates.base')
 @section('body')
-    <x-sections.navbar class='bg-indigo-500' />
+    <x-sections.navbar class='bg-blue-800' />
     {{ $slot }}
 @endsection

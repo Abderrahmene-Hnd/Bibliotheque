@@ -2,27 +2,29 @@
     <div class="mx-auto max-w-3xl border shadow overflow-hidden bg-white rounded-xl p-10">
         <h1 class="text-3xl text-indigo-500 text-center font-bold my-4 ">Create a new Category</h1>
         <form wire:submit.prevent="categoryCreate">
-
-            <label for="newOrVariante" class="font-semibold">New or Variante ?</label>
-            <div>
-                <select wire:model="newOrVariante" class="border-2 border-indigo-500 my-2 mb-5 rounded-xl px-4 py-2 w-28"
-                    name="adminType" id="adminType">
-                    <option value="">Choose</option>
-                    <option value="1">New</option>
-                    <option value="2">Variante</option>
-                </select>
-            </div>
-            @if ($newOrVariante == 2)
-                <select wire:model.lazy="parentId" name="category" id="category"
-                    class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
-                    <option value="">Choose the parent</option>
-                    @foreach ($categories as $category)
-                        @if ($category->parent_id == null)
-                            <option class="text-blue-500 font-semibold" value="{{ $category->id }}">
-                                {{ $category->title }}</option>
-                        @endif
-                    @endforeach
-                </select>
+            @if ($categories->toArray() != null)
+                <label for="newOrVariante" class="font-semibold">New or Variante ?</label>
+                <div>
+                    <select wire:model="newOrVariante"
+                        class="border-2 border-indigo-500 my-2 mb-5 rounded-xl px-4 py-2 w-28" name="adminType"
+                        id="adminType">
+                        <option value="">Choose</option>
+                        <option value="1">New</option>
+                        <option value="2">Variante</option>
+                    </select>
+                </div>
+                @if ($newOrVariante == 2)
+                    <select wire:model.lazy="parentId" name="category" id="category"
+                        class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
+                        <option value="">Choose the parent</option>
+                        @foreach ($categories as $category)
+                            @if ($category->parent_id == null)
+                                <option class="text-blue-500 font-semibold" value="{{ $category->id }}">
+                                    {{ $category->title }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                @endif
             @endif
             <label for="titleInput" class="block mb-2 uppercase font-bold text-gray-700 text-sm">title</label>
             <x-atoms.input value="" model="titleInput" name="titleInput" type="text" class="mb-3"

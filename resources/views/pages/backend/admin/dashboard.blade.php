@@ -1,10 +1,18 @@
 <div>
-    <h1 class="text-green-500 text-5xl font-semibold text-center mt-12">Dashboard</h1>
+    <h1 class="text-green-500 text-5xl font-semibold text-center border-b border-gray-300 pb-9">Dashboard</h1>
+
+     {{-- @foreach ($books->categories as $category)
+                {{ $category->pivot->created_at }}
+            @endforeach --}}
+
+            {{--@foreach ($categories->books as $book)
+                {{ $book->pivot->created_at }}
+            @endforeach --}}
 
     <body class="antialiased font-sans mt-20">
-        <h1 class="text-red-500 text-3xl font-semibold text-center mt-12">Books</h1>
+        <h1 class="text-red-500 text-3xl font-semibold text-center mt-8">Books</h1>
 
-        <div class="container mx-auto px-4 sm:px-8 ml-56">
+        <div class="container mx-auto px-4 sm:px-8">
             <h3 class="font-semibold"><a href="/dashboard/book/create"
                     class="border border-green-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a new
                     book</a>
@@ -29,11 +37,11 @@
                                             Author
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider w-10">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Title
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider ">
                                             Excerpt
                                         </th>
                                         <th
@@ -50,47 +58,49 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($books as $book)
-                                        <tr>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <img src="{{ asset('storage/' . $book->image?->url) }}" alt="Book Image"
-                                                    width="50">
-                                            </td>
-                                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                    {{ $book->category?->title }}
-                                                </p>
-                                            </td>
+                                         @foreach ($book->categories as $category)
+                                            <tr>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <img src="{{ asset('storage/' . $book->image?->url) }}"
+                                                        alt="Book Image" width="50">
+                                                </td>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                        {{ $category->pivot->title }}
+                                                    </p>
+                                                </td>
 
-                                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                    {{ $book->author?->name }}
-                                                </p>
-                                            </td>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                        {{ $book->author?->name }}
+                                                    </p>
+                                                </td>
 
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm w-40">
-                                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                    {{ $book->title }}
-                                                </p>
-                                            </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm w-64">
-                                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                    {{ $book->excerpt }}
-                                                </p>
-                                            </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                    {{ $book->created_at }}
-                                                </p>
-                                            </td>
-                                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <button type="button" wire:click="editBook({{ $book->id }})"
-                                                    class="text-blue-500 hover:text-blue-600">Edit</button>
-                                            </td>
-                                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <button type="button" wire:click="deleteBook({{ $book->id }})"
-                                                    class="text-red-500 hover:text-red-600">Delete</button>
-                                            </td>
-                                        </tr>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                        {{ $book->title }}
+                                                    </p>
+                                                </td>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                        {{ $book->excerpt }}
+                                                    </p>
+                                                </td>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap text-center">
+                                                        {{ $book->created_at }}
+                                                    </p>
+                                                </td>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <button type="button" wire:click="editBook({{ $book->id }})"
+                                                        class="text-blue-500 hover:text-blue-600">Edit</button>
+                                                </td>
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <button type="button" wire:click="deleteBook({{ $book->id }})"
+                                                        class="text-red-500 hover:text-red-600">Delete</button>
+                                                </td>
+                                            </tr>
+                                         @endforeach 
                                     @endforeach
                                 </tbody>
                             </table>
@@ -100,9 +110,9 @@
             </div>
         </div>
         {{-- ----------------------------------------------------- Categories ----------------------------------------------------------- --}}
-        <div class="grid grid-cols-2 mx-auto ">
-            <div class="container mx-auto px-4 sm:px-8 -mr-20">
-                <h1 class="text-red-500 text-2xl font-semibold text-center mt-12">Categories</h1>
+        <div class="grid grid-cols-2 mx-auto space-x-12 ">
+            <div class=" mx-auto px-4 sm:px-8 ">
+                <h1 class="text-red-500 text-2xl font-semibold text-center mt-5">Categories</h1>
                 <h3 class="font-semibold "><a href="/dashboard/category/create"
                         class="border border-green-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a
                         new
@@ -186,7 +196,7 @@
             {{-- ----------------------------------------------------- Authors ----------------------------------------------------------- --}}
 
             <div class=" mx-auto px-4 sm:px-8 ">
-                <h1 class="text-red-500 text-2xl font-semibold text-center mt-12">Authors</h1>
+                <h1 class="text-red-500 text-2xl font-semibold text-center mt-5">Authors</h1>
                 <h3 class="font-semibold"><a href="/dashboard/author/create"
                         class="border border-green-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a
                         new

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\Dashboard\Author;
+namespace App\view\Pages\Backend\Admin;
 
 use App\Models\Author;
-use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use LivewireUI\Modal\ModalComponent;
 use Illuminate\Support\Facades\Storage;
 
-class AuthorUpdate extends Component
+class Authorupdate extends ModalComponent
 {
     use WithFileUploads;
     public $authorId;
@@ -30,28 +30,19 @@ class AuthorUpdate extends Component
             'imageInput'=> ['required']
         ]);
 
-        $author->find($this->authorInfos->id)->update([
+        $author->whereId($this->authorInfos->id)->update([
             'name'=>$this->nameInput,
             'slug'=>str::slug($this->nameInput)
         ]);
-        if ($this->imageInput)
-        {
-            $author->find($this->authorId)->image()->update([
-                'url' => $this->imageInput->store('images'),
-            ]);
-        }
-        else
-        {
-            $author->find($this->authorId)->image()->create([
-                'url' => $this->imageOutput
-            ]);
-        }
+        Storage::delete($this->imageInput);
+        $author->first()->image()->update([
+            'url'=>$this->imageInput->store('images')
+        ]);
 
         redirect('/dashboard')->with('success','The Author have been updated !');
     }
-
     public function render()
     {
-        return view('pages.backend.admin.dashboard.author.author-update')->layout('components.templates.app',['title' => 'Edit the Author']);
+        return view('pages.backend.admin.authorupdate');
     }
 }

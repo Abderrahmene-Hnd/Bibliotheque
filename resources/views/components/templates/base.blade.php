@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Alpine v3 -->
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- Focus plugin -->
+<script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 <head>
@@ -17,6 +24,8 @@
     @yield('body')
     <x-atoms.flash-success />
     <livewire:scripts />
+    @livewire('livewire-ui-modal')
+
 </body>
 
 </html>

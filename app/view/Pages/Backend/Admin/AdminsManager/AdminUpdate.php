@@ -42,7 +42,6 @@ class AdminUpdate extends Component
         ]);
         redirect('/dashboard/admin')->with('success', 'Your Admin User has been updated!');
     }
-
     public function render()
     {
         return view('pages.backend.admin.admins-manager.admin-update')->layout('components.templates.app', ['title' => 'Update the Admin']);

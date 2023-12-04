@@ -1,5 +1,5 @@
         <header class="sticky top-0 z-10 {{ $class ?? '' }} text-white">
-            <section class="max-w-6xl mx-auto flex p-4  justify-between items-center">
+            <section class="max-w-6xl mx-auto flex p-6  justify-between items-center">
                 <h1><a href="/" class="text-3xl font-bold  text-white ">My Library 📖</a></h1>
                 <div><button id="mobile-open-button" class="text-3xl sm:hidden  focus:outline-none">&#9776;</button></div>
                 <div aria-label="main" class="space-x-4 hidden sm:block text-lg">

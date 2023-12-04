@@ -25,7 +25,7 @@ class CategoryCreate extends Component
         $this->validate([
             'titleInput'=> ['required','min:2','max:255'],
             'imageInput'=> ['required'],
-            'newOrVariante'=> ['required'],
+            'newOrVariante'=> $this->categories->toArray() != null ? ['required'] : [''],
             'parentId'=> [$this->newOrVariante==2 ? 'required' : ''],
         ]);
 
@@ -39,7 +39,7 @@ class CategoryCreate extends Component
             'url'=>$this->imageInput->store('images'),
         ]);
 
-        redirect('/dashboard')->with('success','Your author have been created !');
+        redirect('/dashboard')->with('success','Your category have been created !');
     }
     public function render()
     {

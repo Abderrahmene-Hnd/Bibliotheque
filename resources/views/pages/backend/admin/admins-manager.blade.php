@@ -1,9 +1,8 @@
 <div>
     <h1 class="mt-12 text-5xl font-semibold text-center text-red-500">Manage the Admins and the Clients</h1>
-    <h3 class="container mx-auto mt-5 text-xl font-semibold"><a href="/dashboard/admin/create"
-            class="border border-indigo-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-3.5">Create a new Admin</a>
+    <h3 class="container mx-auto mt-8 text-xl font-semibold"><a href="/dashboard/admin/create"
+            class="border border-indigo-500 rounded-3xl bg-indigo-500 text-white px-5 py-2 pb-2.5">Create a new Admin</a>
     </h3>
-
     <body class="font-sans antialiased">
         <div class="container px-4 mx-auto sm:px-8">
             <div class="pb-8">
@@ -73,10 +72,10 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- {{ $users->links() }} --}}
                     </div>
                 </div>
             </div>
         </div>
+
     </body>
 </div>
