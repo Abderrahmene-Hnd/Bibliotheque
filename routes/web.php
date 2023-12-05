@@ -49,7 +49,7 @@ Route::get('/dashboard/admin/{id}/edit', AdminUpdate::class)->middleware('can:ad
 Route::get('/dashboard', Dashboard::class)->middleware('can:manager');
 
 Route::get('/dashboard/book/create', BookCreate::class)->middleware('can:manager');
-Route::get('/dashboard/book/{id}/edit', BookUpdate::class)->middleware('can:manager');
+Route::get('/dashboard/book/{id}/edit', BookUpdate::class )->middleware('can:manager');
 
 Route::get('/dashboard/category/create', CategoryCreate::class)->middleware('can:manager');
 Route::get('/dashboard/category/{id}/edit', CategoryUpdate::class)->middleware('can:manager');
