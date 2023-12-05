@@ -4,14 +4,10 @@
         <form wire:submit.prevent="bookCreate">
             <div>
                 <div class="flex justify-between">
-                    <label for="categoryInput"
+                    <label for="category_ids"
                         class="block mb-1 uppercase font-bold text-gray-700 text-sm">category</label>
-                    @if ($x <= 1)
-                    <button type="button" class=" block mb-1 uppercase font-bold text-indigo-500 text-sm"
-                    wire:click="{{ $x == 0 ? 'addcategory1' : ($x == 1 ? 'addcategory2' : '') }}">Add more categories</button>
-                    @endif
                 </div>
-                <select wire:model.lazy="categoryInput1" name="categoryInput" id="categoryInput"
+                <select wire:model.lazy="category_ids" name="category_ids" id="category_ids" multiple
                     class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
                     <option value="">Choose category</option>
                     @foreach ($categories as $category)
@@ -26,40 +22,6 @@
                         @endforeach
                     @endforeach
                 </select>
-                @if ($addcategory1)
-                    <select wire:model.lazy="categoryInput2" name="categoryInput" id="categoryInput"
-                        class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
-                        <option value="">Choose category</option>
-                        @foreach ($categories as $category)
-                            @if ($category->parent_id == null)
-                                <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
-                                    {{ $category->title }}</option>
-                            @endif
-                            @foreach ($category->children as $child)
-                                <div style="margin-left: 20px;">
-                                    <option value="{{ $child->id }}">{{ $child->title }}</option>
-                                </div>
-                            @endforeach
-                        @endforeach
-                    </select>
-                @endif
-                @if ($addcategory2)
-                    <select wire:model.lazy="categoryInput3" name="categoryInput" id="categoryInput"
-                        class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
-                        <option value="">Choose category</option>
-                        @foreach ($categories as $category)
-                            @if ($category->parent_id == null)
-                                <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
-                                    {{ $category->title }}</option>
-                            @endif
-                            @foreach ($category->children as $child)
-                                <div style="margin-left: 20px;">
-                                    <option value="{{ $child->id }}">{{ $child->title }}</option>
-                                </div>
-                            @endforeach
-                        @endforeach
-                    </select>
-                @endif
             </div>
             <div class="my-2">
                 <label for="author" class="block mb-1 uppercase font-bold text-gray-700 text-sm">author</label>

@@ -15,14 +15,10 @@ use Livewire\WithFileUploads;
 class BookCreate extends Component
 {
     use WithFileUploads;
-    public $addcategory1=false;
-    public $addcategory2=false;
-    public $categoryInput1;
-    public $categoryInput2;
-    public $categoryInput3;
-    public $x=0;
+
     public $authors;
     public $categories;
+    public $category_ids;
     public $authorInput;
     public $titleInput;
     public $imageInput;
@@ -34,16 +30,7 @@ class BookCreate extends Component
         $this->authors = Author::all();
         $this->categories = Category::all();
     }
-    public function addcategory1()
-    {
-        $this->addcategory1=true;
-        $this->x++;
-    }
-    public function addcategory2()
-    {
-        $this->addcategory2=true;
-        $this->x++;
-    }
+
     public function bookCreate(Book $book, BookCategory $bookCategory)
     {
         $this->validate([
@@ -51,7 +38,7 @@ class BookCreate extends Component
             'excerptInput' => ['required', 'min:5', 'max:2555'],
             'bodyInput' => ['required', 'min:5', 'max:2555'],
             'imageInput' => ['required'],
-            'categoryInput1' => ['required'],
+            'category_ids' => ['required'],
             'authorInput' => ['required']
         ]);
 
@@ -62,28 +49,14 @@ class BookCreate extends Component
             'excerpt' => $this->excerptInput,
             'body' => $this->bodyInput,
         ]);
+
         $book->orderBy('id', 'desc')->first()->image()->create([
             'url' => $this->imageInput->store('images'),
         ]);
 
-        if ($this->categoryInput1) {
-            $bookCategory->create([
-                'category_id' => $this->categoryInput1,
-                'book_id' => Book::orderBy('id', 'desc')->first()->id
-            ]);
-        }
-        if ($this->categoryInput2) {
-            $bookCategory->create([
-                'category_id' => $this->categoryInput2,
-                'book_id' => Book::orderBy('id', 'desc')->first()->id
-            ]);
-        }
-        if ($this->categoryInput3) {
-            $bookCategory->create([
-                'category_id' => $this->categoryInput3,
-                'book_id' => Book::orderBy('id', 'desc')->first()->id
-            ]);
-        }
+        if (count($this->category_ids)>0) {
+            $book->orderBy('id', 'desc')->first()->categories()->attach($this->category_ids);
+         }
 
         redirect('/dashboard')->with('success', 'Your book have been created !');
     }
