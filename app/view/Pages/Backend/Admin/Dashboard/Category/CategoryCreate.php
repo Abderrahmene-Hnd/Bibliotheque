@@ -18,6 +18,7 @@ class CategoryCreate extends Component
     public function mount()
     {
         $this->categories=Category::all();
+
     }
 
     public function categoryCreate(Category $category)

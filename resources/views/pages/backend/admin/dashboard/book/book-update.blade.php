@@ -3,38 +3,8 @@
         <h1 class="text-3xl text-indigo-500 text-center font-bold my-4 ">Update the Book</h1>
         <form wire:submit.prevent="bookUpdate">
             <div>
-                <label for="categoryinput1" class="block mb-1 uppercase font-bold text-gray-700 text-sm">category</label>
-                <select wire:model.lazy="categoryInput1" name="category" id="category"
-                    class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
-                    <option value="">Choose category</option>
-                    @foreach ($categories as $category)
-                        @if ($loop->iteration < 5)
-                            <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
-                                {{ $category->title }}</option>
-                            @foreach ($category->children as $child)
-                                <div style="margin-left: 20px;">
-                                    <option value="{{ $child->id }}">{{ $child->title }}</option>
-                                </div>
-                            @endforeach
-                        @endif
-                    @endforeach
-                </select>
-                <select wire:model.lazy="categoryInput2" name="categoryInput" id="categoryInput"
-                    class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
-                    <option value="">Choose category</option>
-                    @foreach ($categories as $category)
-                        @if ($category->parent_id == null)
-                            <option class="text-blue-500 font-semibold" value="{{ $category->id }}" disabled>
-                                {{ $category->title }}</option>
-                        @endif
-                        @foreach ($category->children as $child)
-                            <div style="margin-left: 20px;">
-                                <option value="{{ $child->id }}">{{ $child->title }}</option>
-                            </div>
-                        @endforeach
-                    @endforeach
-                </select>
-                <select wire:model.lazy="categoryInput3" name="categoryInput" id="categoryInput"
+                <label for="category_ids" class="block mb-1 uppercase font-bold text-gray-700 text-sm">category</label>
+                <select wire:model.lazy="category_ids" multiple name="category_ids" id="categoryInput"
                     class="border border-gray-900/25 my-2 mb-5 rounded-md px-4 py-2 w-full">
                     <option value="">Choose category</option>
                     @foreach ($categories as $category)
@@ -64,7 +34,7 @@
 
             <div class="my-2">
                 <label for="title" class="block mb-1 uppercase font-bold text-gray-700 text-sm ">title</label>
-                <x-atoms.input name="title" type="text" class="" holder="{{ $BookInfos->title }}" value="{{ $BookInfos->title }}"
+                <x-atoms.input name="title" type="text" class="" holder="{{ $book->title }}" value="{{ $book->title }}"
                     model="titleInput" />
             </div>
 
@@ -72,14 +42,14 @@
                 <label for="excerpt" class="block mb-1 mt-4 uppercase font-bold text-gray-700 text-sm">excerpt</label>
                 <textarea wire:model.lazy="excerptInput"
                     class="border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2 "
-                    name="excerpt" id="comment" placeholder="{{ $BookInfos->excerpt }}" rows="5" required>{{ $BookInfos->excerpt }}</textarea>
+                    name="excerpt" id="comment" placeholder="{{ $book->excerpt }}" rows="5" required>{{ $book->excerpt }}</textarea>
             </div>
 
             <div class="my-2">
                 <label for="body" class="block mb-1 uppercase font-bold text-gray-700 text-sm">body</label>
                 <textarea wire:model.lazy="bodyInput"
                     class="border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2 "
-                    name="body" id="body" placeholder="{{ $BookInfos->body }}" rows="8" required>{{ $BookInfos->body }}</textarea>
+                    name="body" id="body" placeholder="{{ $book->body }}" rows="8" required>{{ $book->body }}</textarea>
             </div>
             <div>
                 <h1 class="block mb-1 uppercase font-bold text-gray-700 text-sm">Book Image</h1>

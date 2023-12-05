@@ -37,9 +37,9 @@ class Register extends Component
         ]);
 
         $user = User::create([
-            'username' => $attributes['username'],
-            'email' => $attributes['email'],
-            'password' => $attributes['password'],
+            'username' => $this->username,
+            'email' => $this->email,
+            'password' => $this->password,
             'role_id' => 3
         ]);
         auth()->login($user);

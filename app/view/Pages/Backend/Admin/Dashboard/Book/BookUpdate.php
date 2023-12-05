@@ -14,12 +14,9 @@ class BookUpdate extends Component
     use WithFileUploads;
     public $authors;
     public $categories;
-    public $categoryInput1;
-    public $categoryInput2;
-    public $categoryInput3;
     public $BookId;
-    public $BookInfos;
-    public $categoryInput;
+    public $book;
+    public $category_ids =[] ;
     public $authorInput;
     public $titleInput;
     public $imageOutput;
@@ -30,13 +27,13 @@ class BookUpdate extends Component
     public function mount($id)
     {
         $this->BookId = $id;
-        $this->BookInfos = Book::find($id);
-        $this->imageOutput = $this->BookInfos->image?->url;
-        $this->authorInput = $this->BookInfos->author_id;
-        $this->categoryInput = $this->BookInfos->category_id;
-        $this->titleInput = $this->BookInfos->title;
-        $this->excerptInput = $this->BookInfos->excerpt;
-        $this->bodyInput = $this->BookInfos->body;
+        $this->book = Book::find($id);
+        $this->imageOutput = $this->book->image?->url;
+        $this->authorInput = $this->book->author_id;
+        $this->category_ids = $this->book->categories->pluck('id')->toArray();
+        $this->titleInput = $this->book->title;
+        $this->excerptInput = $this->book->excerpt;
+        $this->bodyInput = $this->book->body;
         $this->authors = Author::all();
         $this->categories = Category::all();
     }
@@ -46,7 +43,7 @@ class BookUpdate extends Component
             'titleInput' => ['required', 'min:2', 'max:255'],
             'excerptInput' => ['required', 'min:5', 'max:2555'],
             'bodyInput' => ['required', 'min:5', 'max:2555'],
-            'categoryInput1' => ['required'],
+            'category_ids.*' => 'sometimes|exists:categories,id',
             'authorInput' => ['required']
         ]);
 
@@ -57,26 +54,9 @@ class BookUpdate extends Component
             'body' => $this->bodyInput,
         ]);
 
-        if ($this->categoryInput1) {
-            $bookCategory->where('book_id',Book::find($this->BookId)->id)->get()->first()->update([
-                'category_id' => $this->categoryInput1,
-                'book_id' => Book::find($this->BookId)->id
-            ]);
+        if (count($this->category_ids)>0) {
+           Book::find($this->BookId)->categories()->sync($this->category_ids);
         }
-        if ($this->categoryInput2) {
-            $bookCategory->where('book_id',Book::find($this->BookId)->id)->get()->first()->update([
-                'category_id' => $this->categoryInput2,
-                'book_id' => Book::find($this->BookId)->id
-            ]);
-        }
-        if ($this->categoryInput3) {
-            $bookCategory->where('book_id',Book::find($this->BookId)->id)->get()->first()->update([
-                'category_id' => $this->categoryInput3,
-                'book_id' => Book::find($this->BookId)->id
-            ]);
-        }
-
-
         if ($this->imageInput)
         {
             $book->find($this->BookId)->image()->update([
