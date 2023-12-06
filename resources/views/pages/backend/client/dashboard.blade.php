@@ -7,7 +7,7 @@
             <div class="sm:col-span-4">
                 <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                 <div class="mt-2 justify-between space-x-5 flex ">
-                    <x-atoms.input value="" model="username" name="email" type="email" class=""
+                    <x-atoms.input value="" model="username" name="username" type="text" class=""
                         holder="{{ auth()->user()->username }}" />
 
                     <button type="submit"
@@ -36,7 +36,7 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Old
                     Password</label>
                 <div class="mt-2">
-                    <x-atoms.input value="" model="oldPassword" name="email" type="email" class=""
+                    <x-atoms.input value="" model="oldPassword" name="oldPassword" type="password" class=""
                         holder="" />
                 </div>
                 @error('oldPassword')
@@ -47,7 +47,7 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">New
                     Password</label>
                 <div class="mt-2">
-                    <x-atoms.input value="" model="newPassword" name="email" type="email" class=""
+                    <x-atoms.input value="" model="newPassword" name="newPassword" type="password" class=""
                         holder="" />
                 </div>
             </div>

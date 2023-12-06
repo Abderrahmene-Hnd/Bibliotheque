@@ -31,7 +31,7 @@ class BookCreate extends Component
         $this->categories = Category::all();
     }
 
-    public function bookCreate(Book $book, BookCategory $bookCategory)
+    public function bookCreate()
     {
         $this->validate([
             'titleInput' => ['required', 'min:2', 'max:255'],
@@ -42,7 +42,7 @@ class BookCreate extends Component
             'authorInput' => ['required']
         ]);
 
-        $book->create([
+        $book=Book::create([
             'author_id' => $this->authorInput,
             'title' => $this->titleInput,
             'slug' => str::slug($this->titleInput),
@@ -50,12 +50,12 @@ class BookCreate extends Component
             'body' => $this->bodyInput,
         ]);
 
-        $book->orderBy('id', 'desc')->first()->image()->create([
+        $book->image()->create([
             'url' => $this->imageInput->store('images'),
         ]);
 
         if (count($this->category_ids)>0) {
-            $book->orderBy('id', 'desc')->first()->categories()->attach($this->category_ids);
+            $book->categories()->attach($this->category_ids);
          }
 
         redirect('/dashboard')->with('success', 'Your book have been created !');

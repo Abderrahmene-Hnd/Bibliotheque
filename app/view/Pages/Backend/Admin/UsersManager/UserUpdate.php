@@ -1,13 +1,12 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\AdminsManager;
+namespace App\view\Pages\Backend\Admin\UsersManager;
 
-use App\Models\Book;
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
 
-class AdminUpdate extends Component
+class UserUpdate extends Component
 {
     public $userInfos;
     public $comments;
@@ -44,6 +43,6 @@ class AdminUpdate extends Component
     }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager.admin-update')->layout('components.templates.app', ['title' => 'Update the Admin']);
+        return view('pages.backend.admin.users-manager.user-update')->layout('components.templates.app', ['title' => 'Update the Admin']);
     }
 }

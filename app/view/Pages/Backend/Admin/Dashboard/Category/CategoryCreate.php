@@ -17,33 +17,32 @@ class CategoryCreate extends Component
     public $imageInput;
     public function mount()
     {
-        $this->categories=Category::all();
-
+        $this->categories = Category::all();
     }
 
-    public function categoryCreate(Category $category)
+    public function categoryCreate()
     {
         $this->validate([
-            'titleInput'=> ['required','min:2','max:255'],
-            'imageInput'=> ['required'],
-            'newOrVariante'=> $this->categories->toArray() != null ? ['required'] : [''],
-            'parentId'=> [$this->newOrVariante==2 ? 'required' : ''],
+            'titleInput' => ['required', 'min:2', 'max:255'],
+            'imageInput' => ['required'],
+            'newOrVariante' => $this->categories->toArray() != null ? ['required'] : [''],
+            'parentId' => [$this->newOrVariante == 2 ? 'required' : ''],
         ]);
 
-        $category->create([
-            'title'=>$this->titleInput,
-            'slug'=>str::slug($this->titleInput),
-            'parent_id'=>$this->parentId ?? null
+        $category = Category::create([
+            'title' => $this->titleInput,
+            'slug' => str::slug($this->titleInput),
+            'parent_id' => $this->parentId ?? null
         ]);
 
-        $category->orderBy('id', 'desc')->first()->image()->create([
-            'url'=>$this->imageInput->store('images'),
+        $category->image()->create([
+            'url' => $this->imageInput->store('images'),
         ]);
 
-        redirect('/dashboard')->with('success','Your category have been created !');
+        redirect('/dashboard')->with('success', 'Your category have been created !');
     }
     public function render()
     {
-        return view('pages.backend.admin.dashboard.category.category-create')->layout('components.templates.app',['title' => 'Create a Category']);
+        return view('pages.backend.admin.dashboard.category.category-create')->layout('components.templates.app', ['title' => 'Create a Category']);
     }
 }

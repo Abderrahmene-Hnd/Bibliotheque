@@ -23,6 +23,7 @@
 <body class="min-h-screen bg-slate-50 ">
     @yield('body')
     <x-atoms.flash-success />
+    
     <livewire:scripts />
     @livewire('livewire-ui-modal')
 

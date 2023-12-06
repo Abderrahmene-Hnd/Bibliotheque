@@ -9,6 +9,7 @@ use Illuminate\Validation\Validator;
 
 class ClientDashboard extends Component
 {
+    public $user_id;
     public $userInfos;
     public $username;
     public $email;
@@ -16,9 +17,10 @@ class ClientDashboard extends Component
     public $oldPassword;
     public function mount()
     {
-        $this->userInfos=auth()->user();
-        $this->username=$this->userInfos->username;
-        $this->email=$this->userInfos->email;
+        $this->user_id = auth()->user()->id;
+        $this->userInfos = auth()->user();
+        $this->username = $this->userInfos->username;
+        $this->email = $this->userInfos->email;
     }
     public function updatedUsername()
     {
@@ -43,7 +45,7 @@ class ClientDashboard extends Component
         $this->validate([
             'username' => ['required', 'min:2', 'max:30']
         ]);
-        User::where('id', auth()->user()->id)->update(['username' => $this->username]);
+        User::find($this->user_id)->update(['username' => $this->username]);
         redirect('/settings')->with('success', 'Your username has been updated !');
     }
     public function changerEmail(User $user)
@@ -51,25 +53,22 @@ class ClientDashboard extends Component
         $this->validate([
             'email' => ['required', 'email']
         ]);
-        User::where('id', auth()->user()->id)->update(['email' => $this->email]);
+        User::find($this->user_id)->update(['email' => $this->email]);
         redirect('/settings')->with('success', 'Your email has been updated !');
     }
     public function changerPassword(User $user)
     {
         $this->validate([
             'oldPassword' => ['required'],
-            'newPassword' => ['required','min:2','max:30','different:oldPassword']
+            'newPassword' => ['required', 'min:2', 'max:30', 'different:oldPassword']
         ]);
 
         if (!Hash::check($this->oldPassword, auth()->user()->password)) {
             return $this->addError('oldPassword', 'The old password is wrong');
-        }
-        else
-        {
-            User::where('id', auth()->user()->id)->update(['password' => Hash::make($this->newPassword)]);
+        } else {
+            User::find($this->user_id)->update(['password' => Hash::make($this->newPassword)]);
             redirect('/settings')->with('success', 'Your password has been updated !');
         }
-
     }
     public function render()
     {

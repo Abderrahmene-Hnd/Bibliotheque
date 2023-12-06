@@ -1,11 +1,11 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin;
+namespace App\view\Pages\Backend\Admin\UsersManager;
 
 use App\Models\User;
 use Livewire\Component;
 
-class AdminsManager extends Component
+class UserIndex extends Component
 {
     public $users;
     public function mount()
@@ -15,7 +15,7 @@ class AdminsManager extends Component
     public function editAdmin($id)
     {
         $UserId=User::find($id);
-        $this->redirect('/dashboard/admin/'.$id.'/edit');
+        $this->redirect('/dashboard/user/'.$id.'/edit');
     }
 
     public function deleteAdmin($id)
@@ -25,6 +25,6 @@ class AdminsManager extends Component
     }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager')->layout('components.templates.app',['title' => 'Admins manager']);
+        return view('pages.backend.admin.users-manager.user-index')->layout('components.templates.app',['title' => 'Admins manager']);
     }
 }

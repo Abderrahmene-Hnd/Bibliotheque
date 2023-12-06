@@ -30,7 +30,7 @@ class Login extends Component
         }
 
         session()->regenerate();
-        if (auth()->user()->is_admin == true) {
+        if (auth()->user()->is_admin == true || auth()->user()->role_id < 3) {
             return redirect('/dashboard/admin')->with('success', ' Welcome Back ADMIN ! ' . auth()->user()?->username);
         } else {
             return redirect('/')->with('success', ' Welcome Back ! ' . auth()->user()?->username);

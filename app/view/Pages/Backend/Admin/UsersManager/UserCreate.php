@@ -1,12 +1,12 @@
 <?php
 
-namespace App\view\Pages\Backend\Admin\AdminsManager;
+namespace App\view\Pages\Backend\Admin\UsersManager;
 
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
 
-class AdminCreate extends Component
+class UserCreate extends Component
 {
     public $usernameInput;
     public $emailInput;
@@ -34,6 +34,6 @@ class AdminCreate extends Component
     }
     public function render()
     {
-        return view('pages.backend.admin.admins-manager.admin-create')->layout('components.templates.app',['title' => 'Create Admin']);
+        return view('pages.backend.admin.users-manager.user-create')->layout('components.templates.app',['title' => 'Create Admin']);
     }
 }

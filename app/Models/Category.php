@@ -13,7 +13,16 @@ class Category extends Model
 {
     use HasFactory;
     use HasRecursiveRelationships;
-    
+
+    public function getParentKeyName()
+    {
+        return 'parent_id';
+    }
+    public function getLocalKeyName()
+    {
+        return 'id';
+    }
+
     public function books(): BelongsToMany
     {
         return $this->belongsToMany(Book::class,'book_categories','category_id','book_id');
