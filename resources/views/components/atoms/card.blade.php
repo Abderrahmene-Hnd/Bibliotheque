@@ -1,9 +1,23 @@
-<div class=" {{ $class }} rounded-xl p-8 bg-gray-100 ">
-    <div class="flex space-x-5">
-        <img src="{{ asset('storage/' . $book->image?->url) }}" alt="book pic" width="200" >
-        <div class="text-3xl  w-72">{{ $book->title }}</div>
-    </div>
-    <div class="mt-5 w-96">
-        {{ $book->excerpt }}
+<div class="max-w-sm ">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="wsk-cp-product {{ $class }}">
+                <div class="wsk-cp-img">
+                    <a href=""><img src="{{ asset('storage/' . $book->image?->url) }}" alt="book pic" width="200"
+                        class="img-responsive"/></a>
+                </div>
+                <div class="wsk-cp-text">
+                    <div class="category">
+                        <span>{{ $book->author?->name }}</span>
+                    </div>
+                    <div class="title-product">
+                        <a href=""><h3>{{ $book->title }}</h3></a>
+                    </div>
+                    <div class="description-prod">
+                        <p class="text-sm">{{ $book->excerpt }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

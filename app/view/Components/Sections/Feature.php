@@ -3,8 +3,8 @@
 namespace App\view\Components\Sections;
 
 use App\Models\Book;
+use App\Models\Author;
 use Livewire\Component;
-use App\Models\Features;
 
 class feature extends Component
 {

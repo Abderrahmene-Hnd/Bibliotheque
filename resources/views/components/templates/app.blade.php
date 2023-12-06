@@ -1,6 +1,6 @@
 @extends('components.templates.base')
 @section('body')
-    <x-sections.appnavbar class='bg-gray-800' />
+    <x-sections.navbar class='bg-gray-800' />
     <div class="w-full h-full">
         <dh-component>
             <div class="flex flex-no-wrap">

@@ -1,5 +1,5 @@
-<div class="grid grid-cols-3 mt-60 space-x-8 space-y-8 ">
+<div class="grid grid-cols-4 space-x-2 space-y-2 mt-7" id="features">
     @foreach ($books as $book)
-        <livewire:components.atoms.card :book="$book" class="border-2 border-indigo-500" />
+        <livewire:components.atoms.card :book="$book"/>
     @endforeach
 </div>
