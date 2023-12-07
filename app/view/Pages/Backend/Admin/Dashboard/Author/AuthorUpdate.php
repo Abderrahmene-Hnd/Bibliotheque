@@ -47,7 +47,7 @@ class AuthorUpdate extends Component
             ]);
         }
 
-        redirect('/dashboard')->with('success','The Author have been updated !');
+        redirect('/dashboard/author')->with('success','The Author have been updated !');
     }
 
     public function render()

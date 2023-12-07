@@ -11,8 +11,10 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
+        "santigarcor/laratrust": "^8.2",
         "staudenmeir/laravel-adjacency-list": "^1.14",
-        "wire-elements/modal": "^1.0"
+        "wire-elements/modal": "^1.0",
+        "wireui/wireui": "^1.17"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",

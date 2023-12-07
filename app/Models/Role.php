@@ -2,19 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laratrust\Models\Role as RoleModel;
 
-class Role extends Model
+class Role extends RoleModel
 {
-    use HasFactory;
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
-    public const IS_ADMIN = 1;
-    public const IS_MANAGER = 2;
-    public const IS_CLIENT = 3;
-
+    public $guarded = [];
 }

@@ -39,7 +39,7 @@ class CategoryCreate extends Component
             'url' => $this->imageInput->store('images'),
         ]);
 
-        redirect('/dashboard')->with('success', 'Your category have been created !');
+        redirect('/dashboard/category')->with('success', 'Your category have been created !');
     }
     public function render()
     {

@@ -23,6 +23,10 @@
                     @endforeach
                 </select>
             </div>
+            {{-- <div>
+                <x-select label="Select Statuses" placeholder="Select many statuses" multiselect :options="['Active', 'Pending', 'Stuck', 'Done']"
+                    wire:model.defer="model" />
+            </div> --}}
             <div class="my-2">
                 <label for="author" class="block mb-1 uppercase font-bold text-gray-700 text-sm">author</label>
                 <select wire:model.lazy="authorInput" name="author" id="author"

@@ -31,7 +31,7 @@ class AuthorCreate extends Component
             'url' => $this->imageInput->store('images'),
         ]);
 
-        redirect('/dashboard')->with('success', 'Your author have been created !');
+        redirect('/dashboard/author')->with('success', 'Your author have been created !');
     }
     public function render()
     {

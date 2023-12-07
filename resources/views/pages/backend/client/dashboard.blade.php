@@ -1,8 +1,5 @@
-<div class="mx-auto max-w-5xl border shadow overflow-hidden bg-gray-100/10 rounded-xl px-14 py-14 mt-5 ">
-    <h2 class=" text-3xl text-center font-semibold leading-7 text-indigo-700">Personal Informations</h2>
-
-    <div class="mt-10 space-y-8 ">
-        <h2 class="text-lg font-semibold leading-7 text-gray-900 -mb-3">Change your Username and email</h2>
+<div class="mx-auto max-w-5xl border shadow overflow-hidden bg-gray-100/10 rounded-xl px-14 py-14 mt-5 space-y-8 ">
+        <h2 class="text-lg font-semibold leading-7 text-gray-800 -mb-3">Change your Username and email</h2>
         <form wire:submit.prevent="changerUsername">
             <div class="sm:col-span-4">
                 <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
@@ -28,10 +25,9 @@
                 </div>
             </div>
         </form>
-    </div>
     <form wire:submit.prevent="changerPassword">
         <div class="mt-10 space-y-8 ">
-            <h2 class="text-lg font-semibold leading-7 text-gray-900 -mb-3">Change the password</h2>
+            <h2 class="text-lg font-semibold leading-7 text-gray-800 -mb-3">Change the password</h2>
             <div class="sm:col-span-4">
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Old
                     Password</label>

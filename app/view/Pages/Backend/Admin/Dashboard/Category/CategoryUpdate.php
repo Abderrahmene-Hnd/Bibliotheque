@@ -57,7 +57,7 @@ class CategoryUpdate extends Component
             ]);
         }
 
-        redirect('/dashboard')->with('success', 'The Category have been updated !');
+        redirect('/dashboard/category')->with('success', 'The Category have been updated !');
     }
     public function render()
     {

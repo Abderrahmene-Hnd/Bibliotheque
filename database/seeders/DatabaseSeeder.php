@@ -50,35 +50,31 @@ class DatabaseSeeder extends Seeder
             'username' => 'Abderrahmene',
             'email' => 'abdouhnd31@gmail.com',
             'is_admin' => 1,
-            'role_id' => 1
         ]);
         User::factory()->create([
             'username' => 'Youcef',
             'email_verified_at' => Carbon::now(),
             'is_admin' => 0,
-            'role_id' => 2
         ]);
         User::factory()->create([
             'username' => 'Amine',
             'is_admin' => 0,
-            'role_id' => 3
         ]);
         User::factory(7)->create([
             'is_admin' => 0,
-            'role_id' => 3
         ]);
 
 
-        //Roles :
-        Role::create([
-            'name' => 'Administator'
-        ]);
-        Role::create([
-            'name' => 'Manager'
-        ]);
-        Role::create([
-            'name' => 'Client'
-        ]);
+        // //Roles :
+        // Role::create([
+        //     'name' => 'Administator'
+        // ]);
+        // Role::create([
+        //     'name' => 'Manager'
+        // ]);
+        // Role::create([
+        //     'name' => 'Client'
+        // ]);
 
 
         //categories:

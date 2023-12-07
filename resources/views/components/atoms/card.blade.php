@@ -1,9 +1,9 @@
-<div class="max-w-sm ">
+<div class="max-w-sm p-2">
     <div class="row">
         <div class="col-md-3">
             <div class="wsk-cp-product {{ $class }}">
-                <div class="wsk-cp-img">
-                    <a href=""><img src="{{ asset('storage/' . $book->image?->url) }}" alt="book pic" width="200"
+                <div class="wsk-cp-img ">
+                    <a href="/books/{{ $book->id }}"><img src="{{ asset('storage/' . $book->image?->url) }}" alt="book pic"
                         class="img-responsive"/></a>
                 </div>
                 <div class="wsk-cp-text">

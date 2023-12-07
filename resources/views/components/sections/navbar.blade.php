@@ -3,13 +3,17 @@
         <div class="relative flex h-16 items-center justify-between">
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex  items-center">
-                    @if ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/login' || $_SERVER['REQUEST_URI'] == '/register')
-                        <h1><a href="/" class="text-2xl font-bold  text-white ">My Library 📖</a></h1>
+
+                    @if ($currentLink == '/dashboard/user' || $currentLink == '/dashboard/book' || $currentLink == '/dashboard/category' || $currentLink == '/dashboard/author' || $currentLink == '/dashboard'  || $currentLink == '/settings')
+                    @else
+                    <a href="/"><img class="pt-2.5 pr-2" src="{{ asset('storage/images/Lybrrarywhite.png') }}" alt="Lary avatar" width="50"></a>
+                    <a href="/" class="text-2xl font-bold text-white">My Library </a>
                     @endif
+
                 </div>
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4 ml-52">
-                        @switch($_SERVER['REQUEST_URI'])
+                        @switch($currentLink)
                             @case('/dashboard/user')
                                 <span class="text-white text-center text-4xl  ml-96">Users Manager</span>
                             @break
@@ -35,12 +39,11 @@
                             @break
 
                             @case('/')
-                                <a href="/" class="text-gray-300 hover:text-white px-3 py-2  font-medium"
-                                    aria-current="page">Vitrine</a>
-                                    <a href="/login" class="text-gray-300 hover:text-white px-3 py-2  font-medium"
-                                    aria-current="page">Login</a>
-                                    <a href="/register" class="text-gray-300 hover:text-white px-3 py-2  font-medium"
-                                    aria-current="page">Register</a>
+                                @auth
+
+                                    <a href="/" class="text-white hover:text-white px-3 py-2  font-medium"
+                                        aria-current="page">Vitrine</a>
+                                @endauth
                                 @manager
                                     <a href="/dashboard" class="text-gray-300 hover:text-white px-3 py-2 font-medium">Dashbord</a>
                                 @endmanager
@@ -52,6 +55,7 @@
 
                             @default
                         @endswitch
+
                     </div>
                 </div>
             </div>
@@ -89,6 +93,12 @@
                         </div>
                     </div>
                 @endauth
+                @guest
+                    <a href="/login" class="text-gray-300 hover:text-white px-3 py-2  font-medium"
+                        aria-current="page">Login</a>
+                    <a href="/register" class="text-gray-300 hover:text-white px-3 py-2  font-medium"
+                        aria-current="page">Register</a>
+                @endguest
             </div>
         </div>
     </div>
@@ -97,3 +107,4 @@
     @csrf
     <button type="submit">Logout</button>
 </form>
+{{ $slot }}

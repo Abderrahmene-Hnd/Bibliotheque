@@ -1,4 +1,4 @@
-<article class="flex mt-10 bg-gray-50 rounded-xl border border-blue-700 p-4 space-x-4">
+<article class="flex mt-10 bg-gray-50 border border-gray-900/25 my-2 rounded-lg p-2 w-full shadow-sm ring-gray-300 placeholder:text-gray-400 focus:ring-2  p-4 space-x-4">
     <div class="flex-shrink-0">
         <img src="https://i.pravatar.cc/100?img={{ rand(1, 10) }}" alt="" width="60" height="60"
             class="rounded-xl">

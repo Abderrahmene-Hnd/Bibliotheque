@@ -8,14 +8,16 @@ use App\Models\Task;
 use App\Models\Comment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Laratrust\Contracts\LaratrustUser;
+use Laratrust\Traits\HasRolesAndPermissions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements LaratrustUser
 {
-
     use HasApiTokens, HasFactory, Notifiable;
-
+    use HasRolesAndPermissions;
     /**
      * The attributes that are mass assignable.
      *

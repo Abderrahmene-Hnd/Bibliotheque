@@ -58,7 +58,7 @@ class BookCreate extends Component
             $book->categories()->attach($this->category_ids);
          }
 
-        redirect('/dashboard')->with('success', 'Your book have been created !');
+        redirect('/dashboard/book')->with('success', 'Your book have been created !');
     }
     public function render()
     {

@@ -70,7 +70,7 @@ class BookUpdate extends Component
             ]);
         }
 
-        redirect('/dashboard')->with('success', 'Your book have been updated !');
+        redirect('/dashboard/book')->with('success', 'Your book have been updated !');
     }
     public function render()
     {
