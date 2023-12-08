@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <x-atoms.button class="" content="CREATE" />
+            <x-atoms.button class="text-white border border-indigo-500 bg-indigo-500" content="CREATE" />
             <x-atoms.show-errors />
         </form>
     </div>

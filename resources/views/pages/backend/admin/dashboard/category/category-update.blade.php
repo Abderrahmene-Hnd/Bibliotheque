@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <x-atoms.button class="" content="EDIT" />
+            <x-atoms.button class="text-white border border-indigo-500 bg-indigo-500" content="EDIT" />
             <x-atoms.show-errors />
         </form>
     </div>

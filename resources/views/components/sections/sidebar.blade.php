@@ -68,7 +68,7 @@
                                 <span class="text-sm ml-2">Authors</span>
                             </a>
                         </li>
-                        @admin
+                        @role('owner')
                             <li
                                 class="flex w-full justify-between  hover:text-gray-300 {{ $_SERVER['REQUEST_URI']=='/dashboard/user'? 'text-gray-100' : 'text-gray-400'}} cursor-pointer items-center mb-6">
                                 <a href="/dashboard/user"
@@ -85,7 +85,7 @@
                                     <span class="text-sm ml-2">Users Manager</span>
                                 </a>
                             </li>
-                        @endadmin
+                        @endrole
                         <li
                             class="flex w-full justify-between  hover:text-gray-300 {{ $_SERVER['REQUEST_URI']=='/settings'? 'text-gray-100' : 'text-gray-400'}} cursor-pointer items-center">
                             <a href="/settings"

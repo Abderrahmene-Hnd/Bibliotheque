@@ -44,13 +44,14 @@
                                     <a href="/" class="text-white hover:text-white px-3 py-2  font-medium"
                                         aria-current="page">Vitrine</a>
                                 @endauth
-                                @manager
+                                @role('manager')
+
                                     <a href="/dashboard" class="text-gray-300 hover:text-white px-3 py-2 font-medium">Dashbord</a>
-                                @endmanager
-                                @admin
+                                @endrole
+                                @role('owner')
                                     <a href="/dashboard/user" class="text-gray-300 hover:text-white px-3 py-2 font-medium">Users
                                         Manager</a>
-                                @endadmin
+                                @endrole
                             @break
 
                             @default

@@ -45,7 +45,7 @@
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                         <p class="text-center text-gray-900 whitespace-no-wrap">
-                                            {{ $user->role_id == 1 ? 'Admin' : ($user->role_id == 2 ? 'Manager' : 'Client') }}
+                                            {{ $user->hasRole('owner') ? 'Owner' : ($user->hasRole('admin')? 'Admin' : ($user->hasRole('manager') ? 'Manager' : 'Client')) }}
                                         </p>
                                     </td>
                                     <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">

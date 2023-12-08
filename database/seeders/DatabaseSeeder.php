@@ -11,9 +11,11 @@ use App\Models\Author;
 use App\Models\Comment;
 use App\Models\Category;
 use App\Models\Features;
+use App\Models\Permission;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
+use Database\Seeders\LaratrustSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,260 +24,51 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //Features :
-        // Features::factory()->create(["image" => "images/poor-dad-rich-dad.jpg"]);
-        // Features::factory()->create(["image" => "images/2657.jpg"]);
-        // Features::factory()->create(["image" => "images/9717.jpg"]);
-        // Features::factory()->create(["image" => "images/63697.jpg"]);
-        // Features::factory()->create(["image" => "images/128029.jpg"]);
-        // Features::factory()->create(["image" => "images/10073506.jpg"]);
-
-        Comment::factory(2)->create([
-            'user_id' => rand(1, 10)
-        ]);
-        Comment::factory(2)->create([
-            'user_id' => rand(1, 10)
-        ]);
-        Comment::factory(2)->create([
-            'user_id' => rand(1, 10)
-        ]);
-        Comment::factory(2)->create([
-            'user_id' => rand(1, 10)
-        ]);
-        Comment::factory(2)->create([
-            'user_id' => rand(1, 10)
-        ]);
-        //Users :
-        User::factory()->create([
-            'username' => 'Abderrahmene',
-            'email' => 'abdouhnd31@gmail.com',
-            'is_admin' => 1,
-        ]);
-        User::factory()->create([
-            'username' => 'Youcef',
-            'email_verified_at' => Carbon::now(),
-            'is_admin' => 0,
-        ]);
-        User::factory()->create([
-            'username' => 'Amine',
-            'is_admin' => 0,
-        ]);
-        User::factory(7)->create([
-            'is_admin' => 0,
-        ]);
-
-
-        // //Roles :
-        // Role::create([
-        //     'name' => 'Administator'
-        // ]);
-        // Role::create([
-        //     'name' => 'Manager'
-        // ]);
-        // Role::create([
-        //     'name' => 'Client'
-        // ]);
-
-
-        //categories:
-        //Category::factory(10)->create();
-
-        //authors:
-        //Author::factory(10)->create();
-
-        //books:
-        //Book::factory(10)->create();
-
-        // Category::first()->image()->create([
-        //     'url'=>'chaklaaCategory.png'
-        // ]);
-
-
-
-        // Categories :
-        Category::create([
-            'title' => $title = 'Anime',
-            'slug' => Str::slug($title),
-            'id' => 1
-        ]);
-        Category::create([
-            'title' => $title = 'Romance',
-            'slug' => Str::slug($title),
-            'id' => 2
-        ]);
-        Category::create([
-            'title' => $title = 'Philosophie',
-            'slug' => Str::slug($title),
-            'id' => 3
-        ]);
-        Category::create([
-            'title' => $title = 'Politics',
-            'slug' => Str::slug($title),
-            'id' => 4
-        ]);
-        Category::create([
-            'title' => $title = 'Gaming',
-            'slug' => Str::slug($title),
-            'id' => 5
-        ]);
-
-
-        //variantes of each category :
-        Category::create([
-            'title' => $title = 'Anime_variation 1',
-            'slug' => Str::slug($title),
-            'parent_id' => 1
-        ]);
-        Category::create([
-            'title' => $title = 'Anime_variation 2',
-            'slug' => Str::slug($title),
-            'parent_id' => 1
-        ]);
-
-
-        Category::create([
-            'title' => $title = 'Romance_variation 1',
-            'slug' => Str::slug($title),
-            'parent_id' => 2
-        ]);
-        Category::create([
-            'title' => $title = 'Romance_variation 2',
-            'slug' => Str::slug($title),
-            'parent_id' => 2
-        ]);
-
-
-
-        Category::create([
-            'title' => $title = 'Philo_variation 1',
-            'slug' => Str::slug($title),
-            'parent_id' => 3
-        ]);
-        Category::create([
-            'title' => $title = 'Philo_variation 2',
-            'slug' => Str::slug($title),
-            'parent_id' => 3
-        ]);
-
-
-
-        Category::create([
-            'title' => $title = 'Politics_variation 1',
-            'slug' => Str::slug($title),
-            'parent_id' => 4
-        ]);
-        Category::create([
-            'title' => $title = 'Politics_variation 2',
-            'slug' => Str::slug($title),
-            'parent_id' => 4
-        ]);
-
-
-        Category::create([
-            'title' => $title = 'Gaming_variation 1',
-            'slug' => Str::slug($title),
-            'parent_id' => 5
-        ]);
-
-        Category::create([
-            'title' => $title = 'Gaming_variation 2',
-            'slug' => Str::slug($title),
-            'parent_id' => 5
-        ]);
-        Category::find(1)->image()->create([
-            'url' => '3M4sfNwHJwdYkQkr6ba4sPs0MoDSWPHGmq7qEDNx.jpg'
-        ]);
-        Category::find(2)->image()->create([
-            'url' => '2Dt0Exhjk9bty6T1Npqska0kvpACOWSFQUVpiwwa.jpg'
-        ]);
-        Category::find(3)->image()->create([
-            'url' => '.jpg'
-        ]);
-        Category::find(4)->image()->create([
-            'url' => '.jpg'
-        ]);
-        Category::find(5)->image()->create([
-            'url' => '.jpg0'
-        ]);
-        Category::find(6)->image()->create([
-            'url' => '.jpg'
-        ]);
-        Category::find(7)->image()->create([
-            'url' => '.jpg'
-        ]);
-        Category::find(8)->image()->create([
-            'url' => '.jpg'
-        ]);
-
-
-        Author::create([
-            'name' => $name = 'Fyodor Dostoevsky',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Dante Alighieri',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Lev Tolstoy',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Fyodor Dostoevsky',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Dante Alighieri',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Lev Tolstoy',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Fyodor Dostoevsky',
-            'slug' => Str::slug($name),
-
-        ]);
-        Author::create([
-            'name' => $name = 'Dante Alighieri',
-            'slug' => Str::slug($name),
-
-        ]);
-
-
-        Author::find(1)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0234502/?ref_=nmls_pst'
-        ]);
-        Author::find(2)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0019604/?ref_=nmls_pst'
-        ]);
-        Author::find(3)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0866243/?ref_=nmls_pst'
-        ]);
-        Author::find(4)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0401076/?ref_=nmls_pst'
-        ]);
-        Author::find(5)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0000636/?ref_=nmls_pst'
-        ]);
-        Author::find(6)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0324473/?ref_=nmls_pst'
-        ]);
-        Author::find(7)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0148859/?ref_=nmls_pst'
-        ]);
-        Author::find(8)->image()->create([
-            'url' => 'https://www.imdb.com/name/nm0130902/?ref_=nmls_pst'
-        ]);
+        $this->call(LaratrustSeeder::class);
+        $this->call(Users::class);
+        $this->call(Comments::class);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Product::create([

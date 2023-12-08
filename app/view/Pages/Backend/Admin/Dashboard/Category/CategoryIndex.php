@@ -22,8 +22,15 @@ class CategoryIndex extends Component
 
     public function deleteCategory($id)
     {
-        Category::find($id)->delete();
-        redirect('/dashboard')->with('success',' Category deleted successfully !');
+        if(auth()->user()->roles->first()?->name=='owner' || auth()->user()->roles->first()?->name=='admin')
+        {
+            Category::find($id)->delete();
+            redirect('/dashboard/category')->with('success',' Category deleted successfully !');
+        }
+        else
+        {
+            redirect('/dashboard/category')->with('error','You do not have permission to delete this category !');
+        }
 
     }
 

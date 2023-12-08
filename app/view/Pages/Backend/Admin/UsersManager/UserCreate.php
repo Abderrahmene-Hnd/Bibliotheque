@@ -2,6 +2,7 @@
 
 namespace App\view\Pages\Backend\Admin\UsersManager;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
@@ -26,8 +27,8 @@ class UserCreate extends Component
             'username'=> $this->usernameInput,
             'email'=> $this->emailInput,
             'password'=> $this->passwordInput,
-            'role_id'=>$this->adminType,
         ]);
+        $user->addRole($this->adminType == 1? 'admin' : ($this->adminType == 2?'manager' : 'client'));
         auth()->login($user);
         redirect('/dashboard')->with('success','Your Admin account has been created !');
 

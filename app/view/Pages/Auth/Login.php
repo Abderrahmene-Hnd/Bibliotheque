@@ -5,6 +5,7 @@ namespace App\view\Pages\Auth;
 use App\Models\Book;
 use App\Models\Comment;
 use Livewire\Component;
+use Laratrust\Laratrust;
 
 class Login extends Component
 {
@@ -30,10 +31,14 @@ class Login extends Component
         }
 
         session()->regenerate();
-        if (auth()->user()->is_admin == true || auth()->user()->role_id < 3) {
-            return redirect('/dashboard/user')->with('success', ' Welcome Back ADMIN ! ' . auth()->user()?->username);
-        } else {
-            return redirect('/')->with('success', ' Welcome Back ! ' . auth()->user()?->username);
+        if (auth()->user()->roles->first()->id == 1) {
+            return redirect('/dashboard/user')->with('success', ' Welcome Back OWNER ! ' . auth()->user()?->username);
+        }
+        elseif (auth()->user()->roles->first()->id <= 3 && auth()->user()->roles->first()->id > 1) {
+            return redirect('/dashboard')->with('success', ' Welcome Back ADMIN ! ' . auth()->user()?->username);
+        }
+        else {
+            return redirect('/')->with('success', ' Welcome Back CLIENT ! ' . auth()->user()?->username);
         }
     }
     public function render()

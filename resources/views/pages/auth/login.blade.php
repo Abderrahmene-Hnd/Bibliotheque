@@ -19,7 +19,7 @@
                 <a href="/forget-password">Forget your password ?</a>
             </div>
 
-            <x-atoms.button class="" content="LOG IN" />
+            <x-atoms.button class="text-white border border-green-500 bg-green-500" content="LOG IN" />
         </form>
 
         @error('login')

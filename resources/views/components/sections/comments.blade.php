@@ -10,7 +10,7 @@
                 @error('comment')
                     <p class='text-red-500 text-xs mt-2'>{{ $message }}</p>
                 @enderror
-                <x-atoms.button content="SUBMIT" class="border border-gray-700 bg-gray-700" />
+                <x-atoms.button content="SUBMIT" class="border border-gray-700 bg-gray-700 text-white" />
             </form>
         </div>
     @else

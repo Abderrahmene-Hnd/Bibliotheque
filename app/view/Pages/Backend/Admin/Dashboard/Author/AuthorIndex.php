@@ -20,11 +20,16 @@ class AuthorIndex extends Component
     }
     public function deleteAuthor($id)
     {
-        Author::find($id)->delete();
-        redirect('/dashboard')->with('success',' Author deleted successfully !');
-
+        if(auth()->user()->roles->first()?->name=='owner' || auth()->user()->roles->first()?->name=='admin')
+        {
+            Author::find($id)->delete();
+            redirect('/dashboard/author')->with('success',' Author deleted successfully !');
+        }
+        else
+        {
+            redirect('/dashboard/author')->with('error','You do not have permission to delete this author !');
+        }
     }
-
     public function render()
     {
         return view('pages.backend.admin.dashboard.author.author-index')->layout('components.templates.app',['title' => 'Authors']);

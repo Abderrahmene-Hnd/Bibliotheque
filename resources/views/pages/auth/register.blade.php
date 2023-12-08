@@ -26,7 +26,7 @@
             @error('passwordConfirmation')
                 <p class='text-red-500 text-xs mb-2'> {{ $message }}</p>
             @enderror
-            <x-atoms.button class="" content="REGISTER" />
+            <x-atoms.button class="text-white border border-blue-500 bg-blue-500" content="REGISTER" />
         </form>
         <x-atoms.show-errors />
         <p class="mt-6 text-center text-sm text-gray-500">

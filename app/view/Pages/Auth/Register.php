@@ -40,8 +40,8 @@ class Register extends Component
             'username' => $this->username,
             'email' => $this->email,
             'password' => $this->password,
-            'role_id' => 3
         ]);
+        $user->addRole('client');
         auth()->login($user);
         redirect('/')->with('success', 'Your account has been created !');
     }

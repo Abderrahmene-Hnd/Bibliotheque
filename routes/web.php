@@ -36,7 +36,6 @@ use App\view\Pages\Auth\PasswordManager\ForgetPassword_Create;
 Route::get('/', Index::class)->name('home');
 Route::get('/books/{id}', Show::class);
 
-
 Route::middleware('guest')->group(function () {
     Route::get('/register', Register::class);
     Route::get('/login', Login::class);
@@ -47,32 +46,31 @@ Route::middleware('auth')->group(function () {
     Route::get('/settings', ClientDashboard::class);
 });
 
-
 Route::prefix('dashboard')->group(function () {
 
-    Route::middleware('can:admin')->prefix('user')->group(function () {
+    Route::middleware('role:owner')->prefix('user')->group(function () {
         Route::get('/', UserIndex::class);
         Route::get('/create', UserCreate::class);
         Route::get('/{id}/edit', UserUpdate::class);
     });
 
-    Route::middleware('can:manager')->group(function () {
+    Route::middleware('role:manager')->group(function () {
 
         Route::get('/', Dashboard::class);
         Route::prefix('book')->group(function () {
-            Route::get('/', BookIndex::class);
-            Route::get('/create', BookCreate::class);
-            Route::get('/{id}/edit', BookUpdate::class);
+            Route::get('/', BookIndex::class)->middleware('permission:book-read');
+            Route::get('/create', BookCreate::class)->middleware('permission:book-create');
+            Route::get('/{id}/edit', BookUpdate::class)->middleware('permission:book-update');
         });
         Route::prefix('category')->group(function () {
-            Route::get('/', CategoryIndex::class);
-            Route::get('/create', CategoryCreate::class);
-            Route::get('/{id}/edit', CategoryUpdate::class);
+            Route::get('/', CategoryIndex::class)->middleware('permission:category-read');
+            Route::get('/create', CategoryCreate::class)->middleware('permission:category-create');
+            Route::get('/{id}/edit', CategoryUpdate::class)->middleware('permission:category-update');
         });
         Route::prefix('author')->group(function () {
-            Route::get('/', AuthorIndex::class);
-            Route::get('/create', AuthorCreate::class);
-            Route::get('/{id}/edit', AuthorUpdate::class);
+            Route::get('/', AuthorIndex::class)->middleware('permission:author-read');
+            Route::get('/create', AuthorCreate::class)->middleware('permission:author-create');
+            Route::get('/{id}/edit', AuthorUpdate::class)->middleware('permission:author-update');
         });
     });
 });

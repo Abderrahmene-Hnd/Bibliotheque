@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <x-atoms.button class="" content="Edit" />
+            <x-atoms.button class="text-white border border-indigo-500 bg-indigo-500" content="Edit" />
         </form>
     </div>
 </div>

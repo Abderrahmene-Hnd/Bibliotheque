@@ -29,19 +29,6 @@
                         Back to Posts
                     </a>
                     <div class="flex">
-                        {{-- <div>
-                                <x-category-button :category="$post->category" />
-                            </div> --}}
-                        {{-- @admin
-                                <div class="lg:grid lg:grid-cols-3">
-                                    <div></div>
-                                    <div></div>
-                                    <div class="flex space-x-2">
-                                        <x-edit-button :book="$book" />
-                                        <x-delete-button :book="$book" />
-                                    </div>
-                                </div>
-                            @endadmin --}}
                     </div>
                 </div>
                 <h1 class="font-bold text-3xl lg:text-4xl mb-10">

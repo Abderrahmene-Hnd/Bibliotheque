@@ -7,9 +7,10 @@
                 <select wire:model="adminType" class="border-2 border-indigo-500 my-2 mb-5 rounded-xl px-4 py-2 w-28"
                     name="admintype" id="admintype">
                     <option value="">Select</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Manager</option>
-                    <option value="3">Client</option>
+                    <option value="1" class="text-red-300" disabled>Owner</option>
+                    <option value="2">Admin</option>
+                    <option value="3">Manager</option>
+                    <option value="4">Client</option>
                 </select>
             </div>
             <label for="username" class="font-semibold">USERNAME</label>
@@ -21,7 +22,7 @@
             <label for="password" class="font-semibold">PASSWORD</label>
             <x-atoms.input value="" model="passwordInput" name="password" type="password" class="mb-4 p-2 my-1"
                 holder="" />
-            <x-atoms.button class="mt-1" content="EDIT" />
+            <x-atoms.button class="mt-1 text-white border border-indigo-500 bg-indigo-500" content="EDIT" />
         </form>
         <x-atoms.show-errors />
     </div>

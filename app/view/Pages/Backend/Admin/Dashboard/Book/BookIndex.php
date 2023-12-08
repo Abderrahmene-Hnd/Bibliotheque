@@ -23,8 +23,15 @@ class BookIndex extends Component
     }
     public function deleteBook($id)
     {
-        Book::find($id)->delete();
-        redirect('/dashboard')->with('success',' Book deleted successfully !');
+        if(auth()->user()->roles->first()?->name=='owner' || auth()->user()->roles->first()?->name=='admin')
+        {
+            Book::find($id)->delete();
+            redirect('/dashboard/book')->with('success',' Book deleted successfully !');
+        }
+        else
+        {
+            redirect('/dashboard/book')->with('error','You do not have permission to delete this book !');
+        }
     }
 
     public function render()

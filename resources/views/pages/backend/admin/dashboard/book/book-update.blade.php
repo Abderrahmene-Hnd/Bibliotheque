@@ -34,8 +34,8 @@
 
             <div class="my-2">
                 <label for="title" class="block mb-1 uppercase font-bold text-gray-700 text-sm ">title</label>
-                <x-atoms.input name="title" type="text" class="" holder="{{ $book->title }}" value="{{ $book->title }}"
-                    model="titleInput" />
+                <x-atoms.input name="title" type="text" class="" holder="{{ $book->title }}"
+                    value="{{ $book->title }}" model="titleInput" />
             </div>
 
             <div class="my-2">
@@ -56,7 +56,8 @@
                 <div class="mb-5 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div class="grid grid-cols-2  space-x-12">
                         <div>
-                            <img class="rounded-xl" src="{{ asset('storage/' . $imageOutput) }}" alt="Author Image" width="200">
+                            <img class="rounded-xl" src="{{ asset('storage/' . $imageOutput) }}" alt="Author Image"
+                                width="200">
                         </div>
                         <div class="text-center">
                             <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
@@ -79,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <x-atoms.button class="" content="EDIT" />
+            <x-atoms.button class="text-white border border-indigo-500 bg-indigo-500" content="EDIT" />
             <x-atoms.show-errors />
         </form>
     </div>

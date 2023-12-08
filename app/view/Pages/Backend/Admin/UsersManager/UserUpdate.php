@@ -2,6 +2,7 @@
 
 namespace App\view\Pages\Backend\Admin\UsersManager;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
@@ -19,7 +20,7 @@ class UserUpdate extends Component
     public function mount($id)
     {
         $this->userInfos = User::find($id);
-        $this->adminType = $this->userInfos->role_id;
+        $this->adminType = $this->userInfos->roles->first()->id;
         $this->usernameInput = $this->userInfos->username;
         $this->emailInput = $this->userInfos->email;
         $this->userId = $id;
@@ -33,13 +34,13 @@ class UserUpdate extends Component
             'passwordInput' => ['required', 'min:5', 'max:255'],
             'adminType' => ['required']
         ]);
-        $user->whereId($this->userId)->update([
+        $user->find($this->userId)->update([
             'username' => $this->usernameInput,
             'email' => $this->emailInput,
             'password' => $this->passwordInput,
-            'role_id' => $this->adminType
         ]);
-        redirect('/dashboard/admin')->with('success', 'Your Admin User has been updated!');
+        $user->find($this->userId)->syncRoles($this->adminType == 2? ['admin'] : ($this->adminType == 3? ['manager'] :($this->adminType == 4? ['client']:[''])));
+        redirect('/dashboard/user')->with('success', 'Your Admin User has been updated!');
     }
     public function render()
     {
