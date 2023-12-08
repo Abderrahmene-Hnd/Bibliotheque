@@ -21,6 +21,9 @@
 
             <x-atoms.button class="text-white border border-green-500 bg-green-500" content="LOG IN" />
         </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+        <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 
         @error('login')
             <div class="flex p-4 mt-4 text-sm text-red-700 rounded-lg bg-red-100" role="alert">

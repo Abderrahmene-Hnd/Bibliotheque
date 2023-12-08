@@ -7,7 +7,7 @@
                     Published <time>{{ $book->created_at->diffForHumans() }}</time>
                 </p>
                 <div class="flex items-center lg:justify-center text-sm mt-4">
-                    <img src="{{ asset('storage/images/MY_LIBRARYY.png') }}" alt="Lary avatar" width="80">
+                    <img src="{{ asset('storage/images/MY_LIBRARYY.png') }}" alt="Lary avatar" width="70">
                     <div class="ml-3 text-left">
                         <h6 class=" font-serif">{{ $book->author?->name }}</h6>
                     </div>
