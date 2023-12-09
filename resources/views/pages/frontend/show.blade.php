@@ -3,15 +3,17 @@
         <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
             <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
                 <img src="{{ asset('storage/' . $book->image?->url) }}" alt="hada maaalah" class="rounded-xl">
-                <p class="mt-4 block text-gray-400 text-xs">
-                    Published <time>{{ $book->created_at->diffForHumans() }}</time>
-                </p>
+
                 <div class="flex items-center lg:justify-center text-sm mt-4">
-                    <img src="{{ asset('storage/images/MY_LIBRARYY.png') }}" alt="Lary avatar" width="70">
-                    <div class="ml-3 text-left">
-                        <h6 class=" font-serif">{{ $book->author?->name }}</h6>
+                    <img src="{{ asset('storage/images/MY_LIBRARYY.png') }}" alt="Lary avatar" width="65">
+                    <div class=" text-center ml-3">
+                        <h6 class="font-serif">By : {{ $book->author?->name }}</h6>
+                        <p class="block text-gray-400 text-xs">
+                            Published <time>{{ $book->created_at->diffForHumans() }}</time>
+                        </p>
                     </div>
                 </div>
+
             </div>
             <div class="col-span-8">
                 <div class="hidden lg:flex justify-between mb-6">

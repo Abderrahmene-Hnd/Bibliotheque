@@ -27,6 +27,11 @@ class DatabaseSeeder extends Seeder
         $this->call(LaratrustSeeder::class);
         $this->call(Users::class);
         $this->call(Comments::class);
+        $this->call(Books::class);
+        $this->call(Categories::class);
+        $this->call(Authors::class);
+        $this->call(Images::class);
+        $this->call(Book_Category::class);
     }
 }
 

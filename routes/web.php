@@ -1,5 +1,6 @@
 <?php
 
+use App\view\DyanmicInputs;
 use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\view\Pages')->group(function () {
@@ -50,6 +51,7 @@ Route::namespace('App\view\Pages')->middleware('auth')->group(function () {
     });
 });
 
+Route::get('/contacts', DyanmicInputs::class);
 
 Route::namespace('App\view\Pages\Auth\PasswordManager')->group(function () {
     Route::get('/forget-password', ForgetPassword_Create::class);

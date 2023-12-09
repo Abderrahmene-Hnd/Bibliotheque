@@ -6,7 +6,7 @@ use App\Models\Book;
 use App\Models\Author;
 use Livewire\Component;
 
-class feature extends Component
+class Products extends Component
 {
     public $books;
     public function mount()
@@ -15,6 +15,6 @@ class feature extends Component
     }
     public function render()
     {
-        return view('components.sections.feature');
+        return view('components.sections.products');
     }
 }

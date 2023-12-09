@@ -8,7 +8,6 @@ module.exports = {
       "./resources/**/*.js",
       "./resources/**/*.vue",
       "./node_modules/flowbite/**/*.js",
-
       './vendor/wireui/wireui/resources/**/*.blade.php',
       './vendor/wireui/wireui/ts/**/*.ts',
       './vendor/wireui/wireui/src/View/**/*.php',
@@ -22,6 +21,7 @@ module.exports = {
         aspectRatio: false,
       },
     plugins: [
+        require('flowbite/plugin'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/aspect-ratio'),

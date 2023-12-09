@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
     <title>{{ $title ?? 'My page' }}</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
@@ -24,6 +25,8 @@
 
     <livewire:scripts />
     @livewire('livewire-ui-modal')
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>

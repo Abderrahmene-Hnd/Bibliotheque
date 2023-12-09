@@ -1,6 +1,6 @@
-<div>
+<div class="mx-auto max-w-4xl pl-5 mt-5">
     @auth
-        <div class="mx-auto max-w-screen-lg pl-5">
+        <div >
             <form wire:submit.prevent="addComments">
                 <label for="comment" class="text-2xl text-gray-800 my-5 font-bold">Add a comment</label>
                 <textarea wire:model.lazy="newComment"
@@ -14,7 +14,7 @@
             </form>
         </div>
     @else
-        <div class="mx-auto max-w-screen-lg border-2 border-indigo-500 p-5 mt-52 bg-gray-100 rounded-xl  ">
+        <div class="mx-auto max-w-screen-lg border border-indigo-500 p-5 bg-gray-100 rounded-xl  ">
             <p>To participate to the comment section you need to <span class="text-green-500 font-semibold"><a
                         href="/login">Login</a> </span> or <span class="text-indigo-500 font-semibold"> <a
                         href="/register">Register</a></span> </p>
