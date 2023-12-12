@@ -23,12 +23,18 @@ Route::namespace('App\view\Pages')->middleware('auth')->group(function () {
             Route::get('/settings', Index::class)->middleware('auth');
         });
         Route::namespace('Admin')->prefix('dashboard')->group(function () {
-            Route::namespace('UsersManager')->middleware('role:owner')->prefix('user')->group(function () {
-                Route::get('/', Index::class);
-                Route::get('/create', Create::class);
-                Route::get('/{id}/edit', Update::class);
+
+            Route::middleware('role:owner')->group(function () {
+                Route::namespace('WebsiteManager')->prefix('website')->group(function () {
+                    Route::get('/', Index::class);
+                });
+                Route::namespace('UsersManager')->prefix('user')->group(function () {
+                    Route::get('/', Index::class);
+                    Route::get('/create', Create::class);
+                    Route::get('/{id}/edit', Update::class);
+                });
             });
-            Route::namespace('Dashboard')->middleware('role:manager')->group(function () {
+            Route::namespace('Dashboard')->middleware('role:manager|owner')->group(function () {
                 Route::get('/', Index::class);
 
                 Route::namespace('Book')->prefix('book')->group(function () {

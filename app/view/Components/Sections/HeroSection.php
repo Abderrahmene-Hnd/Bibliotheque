@@ -2,7 +2,7 @@
 
 namespace App\view\Components\Sections;
 
-use Livewire\Component;
+use Illuminate\View\Component;
 
 class HeroSection extends Component
 {

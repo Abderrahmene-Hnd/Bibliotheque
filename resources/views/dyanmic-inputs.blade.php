@@ -1,4 +1,20 @@
 <div class="container mx-auto px-4 sm:px-8  max-w-3xl border shadow overflow-hidden bg-white rounded-xl p-6 mt-8 ">
+    <x-color-picker
+    label="Select a Color"
+    placeholder="Select the book color"
+    :colors="[
+        [ 'name' => 'White',  'value' => '#FFF' ],
+        [ 'name' => 'Black',  'value' => '#000' ],
+        [ 'name' => 'Teal',   'value' => '#14b8a6' ],
+        [ 'name' => 'Slate',  'value' => '#64748b' ],
+        [ 'name' => 'Red',    'value' => '#ef4444' ],
+        [ 'name' => 'Lime',   'value' => '#a3e635' ],
+        [ 'name' => 'Sky',    'value' => '#38bdf8' ],
+        [ 'name' => 'Violet', 'value' => '#8b5cf6' ],
+        [ 'name' => 'Pink',   'value' => '#8b5cf6' ],
+        [ 'name' => 'Indigo', 'value' => '#6366f1' ],
+    ]"
+/>
     <header class="justify-between flex items-center mb-4 border-b pb-4">
         <button wire:click="add()" type="button" class="focus:outline-none text-white bg-purple-500 px-3 py-2 rounded-lg">
             Add contact
