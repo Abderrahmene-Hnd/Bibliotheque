@@ -3,19 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Book;
-use App\Models\Role;
-use App\Models\User;
-use App\Models\Image;
-use App\Models\Author;
-use App\Models\Comment;
-use App\Models\Category;
-use App\Models\Features;
-use App\Models\Permission;
-use Illuminate\Support\Str;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
-use Database\Seeders\LaratrustSeeder;
 
 class DatabaseSeeder extends Seeder
 {

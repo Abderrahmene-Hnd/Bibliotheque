@@ -4,7 +4,7 @@ namespace App\view\Components\Blocs;
 
 use Livewire\Component;
 
-class Sidebars extends Component
+class HeroSections extends Component
 {
     public $nmbr;
     public $bg_pry_color;
@@ -17,6 +17,6 @@ class Sidebars extends Component
     public $txt_sec_hov_color;
     public function render()
     {
-        return view('components.blocs.sidebars');
+        return view('components.blocs.hero-sections');
     }
 }

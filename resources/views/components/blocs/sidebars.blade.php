@@ -1,5 +1,4 @@
-@props(['nmbr','sb_bg_color','sb_txt_color'])
-@switch($nmbr)
+@switch($nmbr?:1)
     @case(1)
     <div class="w-full h-full">
         <dh-component>

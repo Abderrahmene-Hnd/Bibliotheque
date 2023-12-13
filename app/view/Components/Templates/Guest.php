@@ -2,15 +2,16 @@
 
 namespace App\view\Components\Templates;
 
-use Illuminate\View\Component;
 use App\Models\Layout;
+use App\Models\Navbar;
+use Livewire\Component;
 
 class Guest extends Component
 {
-    // public $layout;
-    // public function __construct($layout)
+    // public $navbar;
+    // public function mount()
     // {
-    //     $this->layout= Layout::first();
+    //     $this->navbar= Navbar::first();
     // }
     public function render()
     {

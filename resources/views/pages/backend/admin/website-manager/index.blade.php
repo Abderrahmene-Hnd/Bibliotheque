@@ -62,17 +62,17 @@
     {{-- ----------------------------------------------------sidebar------------------------------------------------------------- --}}
     <div class="w-full h-full">
         <dh-component>
-            <div class="flex flex-no-wrap">
+            <div class="flex flex-no-wrap text-left">
                 <div style="min-height: 1000px"
                     class="w-96 bg-gray-800 shadow md:h-full flex-col justify-between flex sticky top-0 z-10  ">
                     <div class="px-5">
-                        <a href="/dashboard" class="mb-5 font-bold text-gray-300 hover:text-gray-100"><=  Go back to dashboard</a>
+                        <a href="/dashboard" class="mb-5 font-bold text-gray-300 hover:text-gray-100">... Go back to
+                            dashboard</a>
                         <div class="mt-16 w-full flex items-center">
                             <a href="/dashboard/website" class="text-3xl font-bold text-white">Tool Box</a>
                         </div>
                         <ul class="mt-5">
                             <li class="w-full text-black text-sm space-y-3 cursor-pointer items-center mb-6">
-                                <x-color-picker label="Select a Color" placeholder="Select the car color" />
                                 @if (!$navbar)
                                     <button class="border border-gray-2300 px-2 py-1 rounded-lg bg-gray-200 "
                                         wire:click="navbarEdit">Navbar</button>
@@ -96,88 +96,91 @@
                                         <select wire:model.lazy="navbar_bg_pry_color" name="navbar" id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Primary bg Color</option>
-                                            <option value="bg-black">black</option>
-                                            <option value="bg-gray-800">gray</option>
-                                            <option value="bg-white">white</option>
-                                            <option value="bg-blue-500">blue</option>
-                                            <option value="bg-red-500">red</option>
-                                            <option value="bg-green-500">green</option>
+                                            <option value=" bg-black ">black</option>
+                                            <option value=" bg-gray-800 ">gray</option>
+                                            <option value=" bg-white ">white</option>
+                                            <option value=" bg-blue-500 ">blue</option>
+                                            <option value=" bg-red-500 ">red</option>
+                                            <option value=" bg-green-500 ">green</option>
                                         </select>
                                         <select wire:model.lazy="navbar_bg_pry_hov_color" name="navbar" id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
-                                            <option value="hover:bg-black">black</option>
-                                            <option value="hover:bg-gray-800">gray</option>
-                                            <option value="hover:bg-white">white</option>
-                                            <option value="hover:bg-blue-500">blue</option>
-                                            <option value="hover:bg-red-500">red</option>
-                                            <option value="hover:bg-green-500">green</option>
+                                            <option value=" hover:bg-black ">black</option>
+                                            <option value=" hover:bg-gray-800 ">gray</option>
+                                            <option value=" hover:bg-white ">white</option>
+                                            <option value=" hover:bg-blue-500 ">blue</option>
+                                            <option value=" hover:bg-red-500 ">red</option>
+                                            <option value=" hover:bg-green-500 ">green</option>
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
                                         <select wire:model.lazy="navbar_bg_sec_color" name="navbar" id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Secondary bg Color</option>
-                                            <option value="bg-black">black</option>
-                                            <option value="bg-gray-800">gray</option>
-                                            <option value="bg-white">white</option>
-                                            <option value="bg-blue-500">blue</option>
-                                            <option value="bg-red-500">red</option>
-                                            <option value="bg-green-500">green</option>
+                                            <option value=" bg-black ">black</option>
+                                            <option value=" bg-gray-800 ">gray</option>
+                                            <option value=" bg-white ">white</option>
+                                            <option value=" bg-blue-500 ">blue</option>
+                                            <option value=" bg-red-500 ">red</option>
+                                            <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="sidebar_bg_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="sidebar_bg_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
-                                            <option value="hover:bg-black">black</option>
-                                            <option value="hover:bg-gray-800">gray</option>
-                                            <option value="hover:bg-white">white</option>
-                                            <option value="hover:bg-blue-500">blue</option>
-                                            <option value="hover:bg-red-500">red</option>
-                                            <option value="hover:bg-green-500">green</option>
+                                            <option value=" hover:bg-black ">black</option>
+                                            <option value=" hover:bg-gray-800 ">gray</option>
+                                            <option value=" hover:bg-white ">white</option>
+                                            <option value=" hover:bg-blue-500 ">blue</option>
+                                            <option value=" hover:bg-red-500 ">red</option>
+                                            <option value=" hover:bg-green-500 ">green</option>
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
                                         <select wire:model.lazy="navbar_txt_pry_color" name="navbar" id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Primary text Color</option>xs
-                                            <option value="text-black">black</option>
-                                            <option value="text-white">white</option>
-                                            <option value="text-gray-200">gray</option>
-                                            <option value="text-blue-500">blue</option>
-                                            <option value="text-red-500">red</option>
-                                            <option value="text-green-500">green</option>
+                                            <option value=" text-black ">black</option>
+                                            <option value=" text-white ">white</option>
+                                            <option value=" text-gray-200 ">gray</option>
+                                            <option value=" text-blue-500 ">blue</option>
+                                            <option value=" text-red-500 ">red</option>
+                                            <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="navbar_txt_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="navbar_txt_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
-                                            <option value="hover:text-black">black</option>
-                                            <option value="hover:text-white">white</option>
-                                            <option value="hover:text-gray-200">gray</option>
-                                            <option value="hover:text-blue-500">blue</option>
-                                            <option value="hover:text-red-500">red</option>
-                                            <option value="hover:text-green-500">green</option>
+                                            <option value=" hover:text-black ">black</option>
+                                            <option value=" hover:text-white ">white</option>
+                                            <option value=" hover:text-gray-200 ">gray</option>
+                                            <option value=" hover:text-blue-500 ">blue</option>
+                                            <option value=" hover:text-red-500 ">red</option>
+                                            <option value=" hover:text-green-500 ">green</option>
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
                                         <select wire:model.lazy="navbar_txt_sec_color" name="navbar" id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Secondary text Color</option>xs
-                                            <option value="text-black">black</option>
-                                            <option value="text-white">white</option>
-                                            <option value="text-gray-200">gray</option>
-                                            <option value="text-blue-500">blue</option>
-                                            <option value="text-red-500">red</option>
-                                            <option value="text-green-500">green</option>
+                                            <option value=" text-black ">black</option>
+                                            <option value=" text-white ">white</option>
+                                            <option value=" text-gray-200 ">gray</option>
+                                            <option value=" text-blue-500 ">blue</option>
+                                            <option value=" text-red-500 ">red</option>
+                                            <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="navbar_txt_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="navbar_txt_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
-                                            <option value="hover:text-black">black</option>
-                                            <option value="hover:text-white">white</option>
-                                            <option value="hover:text-gray-200">gray</option>
-                                            <option value="hover:text-blue-500">blue</option>
-                                            <option value="hover:text-red-500">red</option>
-                                            <option value="hover:text-green-500">green</option>
+                                            <option value=" hover:text-black ">black</option>
+                                            <option value=" hover:text-white ">white</option>
+                                            <option value=" hover:text-gray-200 ">gray</option>
+                                            <option value=" hover:text-blue-500 ">blue</option>
+                                            <option value=" hover:text-red-500 ">red</option>
+                                            <option value=" hover:text-green-500 ">green</option>
                                         </select>
                                     </div>
                                     <button wire:click="setNavbar"
@@ -198,7 +201,8 @@
                                         <option value="3">Other</option>
                                     </select>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="herosection_bg_pry_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_bg_pry_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Primary bg Color</option>
                                             <option value=" bg-black ">black</option>
@@ -208,7 +212,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="herosection_bg_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_bg_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -220,7 +225,8 @@
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="herosection_bg_sec_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_bg_sec_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Secondary bg Color</option>
                                             <option value=" bg-black ">black</option>
@@ -230,7 +236,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="herosection_bg_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_bg_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -242,7 +249,8 @@
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="herosection_txt_pry_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_txt_pry_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Primary text Color</option>xs
                                             <option value=" text-black ">black</option>
@@ -252,7 +260,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="herosection_txt_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_txt_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -264,7 +273,8 @@
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="herosection_txt_sec_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_txt_sec_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Secondary text Color</option>xs
                                             <option value=" text-black ">black</option>
@@ -274,7 +284,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="herosection_txt_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="herosection_txt_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -357,7 +368,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="card_txt_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="card_txt_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -379,7 +391,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="card_txt_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="card_txt_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -408,7 +421,8 @@
                                         <option value="3">third footer</option>
                                     </select>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="calltoaction_bg_pry_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_bg_pry_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Primary bg Color</option>
                                             <option value=" bg-black ">black</option>
@@ -418,7 +432,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="calltoaction_bg_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_bg_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -430,7 +445,8 @@
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="calltoaction_bg_sec_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_bg_sec_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Secondary bg Color</option>
                                             <option value=" bg-black ">black</option>
@@ -440,7 +456,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="calltoaction_bg_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_bg_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -452,7 +469,8 @@
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="calltoaction_txt_pry_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_txt_pry_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Primary text Color</option>xs
                                             <option value=" text-black ">black</option>
@@ -462,7 +480,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="calltoaction_txt_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_txt_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -474,7 +493,8 @@
                                         </select>
                                     </div>
                                     <div class="flex space-x-2">
-                                        <select wire:model.lazy="calltoaction_txt_sec_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_txt_sec_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Secondary text Color</option>xs
                                             <option value=" text-black ">black</option>
@@ -484,12 +504,13 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="calltoaction_txt_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="calltoaction_txt_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
                                             <option value=" hover:text-white ">white</option>
-                                            <option value=" hover:text-gray-200" >gray</option>
+                                            <option value=" hover:text-gray-200">gray</option>
                                             <option value=" hover:text-blue-500 ">blue</option>
                                             <option value=" hover:text-red-500 ">red</option>
                                             <option value=" hover:text-green-500 ">green</option>
@@ -523,7 +544,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="sidebar_bg_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="sidebar_bg_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -545,7 +567,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="sidebar_bg_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="sidebar_bg_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -567,7 +590,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="sidebar_txt_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="sidebar_txt_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -589,7 +613,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="sidebar_txt_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="sidebar_txt_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -629,7 +654,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="footer_bg_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="footer_bg_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -651,7 +677,8 @@
                                             <option value=" bg-red-500 ">red</option>
                                             <option value=" bg-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="footer_bg_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="footer_bg_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:bg-black ">black</option>
@@ -673,7 +700,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="footer_txt_pry_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="footer_txt_pry_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black ">black</option>
@@ -695,7 +723,8 @@
                                             <option value=" text-red-500 ">red</option>
                                             <option value=" text-green-500 ">green</option>
                                         </select>
-                                        <select wire:model.lazy="footer_txt_sec_hov_color" name="navbar" id="navbar"
+                                        <select wire:model.lazy="footer_txt_sec_hov_color" name="navbar"
+                                            id="navbar"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="">Hover Color</option>
                                             <option value=" hover:text-black  ">black</option>
