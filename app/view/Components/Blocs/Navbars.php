@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Navbars extends Component
 {
-    public $nmbr;
+    public $nmbr=1;
     public $bg_pry_color;
     public $bg_pry_hov_color;
     public $bg_sec_color;

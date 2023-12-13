@@ -1,5 +1,5 @@
 @switch($nmbr?:1)
-    @case(2)
+    @case(1)
         <div class="max-w-sm p-2">
             <div class="row">
                 <div class="col-md-3">
@@ -27,7 +27,7 @@
         </div>
     @break
 
-    @case(1)
+    @case(2)
         <!-- component -->
         <div class="bg-white rounded-md shadow-lg max-w-3xl ">
             <div class="md:flex px-4 leading-none ">

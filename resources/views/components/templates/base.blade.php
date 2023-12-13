@@ -12,10 +12,6 @@
         @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 
-body {
-  text-align: center;
-}
-
 .hr-text {
   line-height: 1em;
   position: relative;
