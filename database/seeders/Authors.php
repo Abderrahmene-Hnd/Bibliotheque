@@ -26,7 +26,7 @@ class Authors extends Seeder
         (19, 'Jane Aaron ', 'jane-aaron', '2023-12-07 16:50:26', '2023-12-07 16:50:26'),
         (20, 'Jonathan Aaron', 'jonathan-aaron', '2023-12-07 16:50:41', '2023-12-07 16:50:41');");
 
-        
+
         // Author::create([
         //     'name' => $name = 'Fyodor Dostoevsky',
         //     'slug' => Str::slug($name),
