@@ -73,4 +73,9 @@ class CategoryController extends Controller
         $category->delete();
         return response()->json(['success' => 'Category deleted successfully']);
     }
+    public function nested(string $id)
+    {
+        $category = Category::find($id)->descendants()->get()->toTree();
+        return response()->json($category);
+    }
 }

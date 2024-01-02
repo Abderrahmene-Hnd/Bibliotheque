@@ -2,6 +2,7 @@
 
 namespace App\view\Pages\Backend\Admin\Dashboard\Book;
 
+use App\Events\NotificationEvent;
 use App\Models\Book;
 use App\Models\Author;
 use Livewire\Component;
@@ -55,7 +56,7 @@ class Create extends Component
         if (count($this->category_ids)>0) {
             $book->categories()->attach($this->category_ids);
          }
-
+         NotificationEvent::dispatch($book, $notif='NewBook Created');
         redirect('/dashboard/book')->with('success', 'Your book have been created !');
     }
     public function render()
