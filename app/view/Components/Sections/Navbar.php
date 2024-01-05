@@ -13,7 +13,7 @@ class Navbar extends Component
     public function __construct($class)
     {
         $this->class = $class;
-        $this->currentLink = $_SERVER['REQUEST_URI'];
+        $this->currentLink = request()->path();
         $this->notifications= Notification::all();
     }
     public function render()

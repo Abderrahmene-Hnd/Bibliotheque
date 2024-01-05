@@ -18,7 +18,6 @@ class Login extends Component
         $this->comments = Comment::all();
         $this->books = Book::all();
     }
-
     public function login()
     {
         $attributes = $this->validate([
@@ -34,7 +33,7 @@ class Login extends Component
         if (auth()->user()->roles->first()->id == 1) {
             return redirect('/dashboard/user')->with('success', ' Welcome Back OWNER ! ' . auth()->user()?->username);
         }
-        elseif (auth()->user()->roles->first()->id <= 3 && auth()->user()->roles->first()->id > 1) {
+        elseif (auth()->user()->roles->first()->id == 2 || auth()->user()->roles->first()->id == 3) {
             return redirect('/dashboard')->with('success', ' Welcome Back ADMIN ! ' . auth()->user()?->username);
         }
         else {

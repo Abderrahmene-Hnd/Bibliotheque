@@ -11,6 +11,5 @@ class Logout extends Component
     {
         auth()->logout();
         redirect('/login')->with('success','Good Bye ! <3');
-
     }
 }

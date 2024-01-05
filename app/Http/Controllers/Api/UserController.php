@@ -24,7 +24,7 @@ class UserController extends Controller
         $client = User::create([
             'username' => request('username'),
             'email' => request('email'),
-            'password' => (request('password')),
+            'password' => request('password'),
             'role_id' => 3
         ]);
         return response()->json($client);
@@ -65,7 +65,7 @@ class UserController extends Controller
         $user->update([
             'username' => request('username'),
             'email' => request('email'),
-            'password' => (request('password')),
+            'password' => request('password'),
             'role_id' => request('role_id')
         ]);
         return response()->json($user);
